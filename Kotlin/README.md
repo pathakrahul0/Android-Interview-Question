@@ -1,16 +1,14 @@
 # Kotlin Interview Questions and Answers
 
 Quick Jump to Topics:
-    > * [Basic] 
+    > * [Basic](#basic)
     > * [Data Class](#data-class)
     > * [Lambdas Expressions](#lambdas-expressions)
     > * [Higher-Order functions](#higher-order-functions)
     > * [Extension Functions](#extension-functions)
     > * [Infix Functions](#infix-functions)
     > * [Inline/No-Inline Functions](#inline/noinline-functions)
-    > * []
-    > * []
-    > * [Coroutin]
+    > * [Coroutines](#coroutines)
 
 
 ### Basic
