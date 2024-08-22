@@ -105,18 +105,70 @@ Quick Jump to Topics:
 
 -   **What is the equivalent of Java static methods in Kotlin?**<br/>
     To achieve the functionality similar to Java static methods in Kotlin, we can use:
-    .)companion object
-    .)package-level function
-    .)object
+    1)companion object
+    2)package-level function
+    3)object
 
 -   **Can we use the new keyword to instantiate a class object in Kotlin?**<br/>
+    No, in Kotlin we don't have to use the new keyword to instantiate a class object. To instantiate a class object, simply we use:
+    ```kotlin
+    var varName = ClassName()
+    ```
+
 -   **What are visibility modifiers in Kotlin?**<br/>
+    A visibility modifier or access specifier or access modifier is a concept that is used to define the scope of something in a programming language. In Kotlin, we have four visibility modifiers:
+
+    1)private: visible inside that particular class or file containing the declaration.
+    2)protected: visible inside that particular class or file and also in the subclass of that particular class where it is declared.
+    3)internal: visible everywhere in that particular module.
+    4)public: visible to everyone.
+
+    Note: By default, the visibility modifier in Kotlin is public .
 
 ### null safety
 
 -   **How to ensure null safety in Kotlin?**<br/>
+    One of the major advantages of using Kotlin is null safety. In Java, if you access some null variable then you will get a NullPointerException . So, the following code in Kotlin will produce a compile-time error:
+
+    ```kotlin
+        var name: String = "MindOrks"
+        name = null //error
+
+        So, to assign null values to a variable, you need to declare the name variable as a nullable string and then during the access of this variable, you need to use a safe call operator i.e. ?.
+        var name: String? = "MindOrks"
+        print(name?.length) // ok
+        name = null // ok
+    ```
+
 -   **What is the difference between safe calls(?.) and null check(!!)?**<br/>
+    Safe call operator i.e. ?. is used to check if the value of the variable is null or not. If it is null then null will be returned otherwise it will return the desired value.
+
+    ```kotlin
+    var name: String? = "MindOrks"
+    println(name?.length) // 8
+    name = null
+    println(name?.length) // null
+    ```
+
+    If you want to throw NullPointerException when the value of the variable is null, then you can use the null check or !! operator.
+    
+    ```kotlin
+    var name: String? = "MindOrks"
+    println(name?.length) // 8
+    name = null
+    println(name!!.length) // KotlinNullPointerException
+    ```
+
 -   **What is Elvis operator in Kotlin?**<br/>
+    In Kotlin, you can assign null values to a variable by using the null safety property. To check if a value is having null value then you can use if-else or can use the Elvis operator i.e. ?: For example:
+
+    ```kotlin
+    var name:String? = "Mindorks"
+    val nameLength = name?.length ?: -1
+    println(nameLength)
+    ```
+
+    The Elvis operator( ?: ) used above will return the length of name if the value is not null otherwise if the value is null, then it will return -1 .
 
 
 ### lateinit
