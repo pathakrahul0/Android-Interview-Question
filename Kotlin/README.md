@@ -59,9 +59,23 @@ Quick Jump to Topics:
     }
     ```
    
-   Here, you can find that the variable ```FILE_EXTENSION``` has been replaced by its value i.e. "```.png```" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using const over val .
+   Here, you can find that the variable ```FILE_EXTENSION``` has been replaced by its value i.e. "```.png```" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using ```const``` over ```val``` .
 
 -   **How to choose between a switch and when in Kotlin?**<br/>
+    One of the major advantages of using Kotlin is null safety. In Java, if you access some null variable then you will get a NullPointerException . So, the following code in Kotlin will produce a compile-time error:
+    ```kotlin
+    var name: String = "MindOrks"
+    name = null //error
+    ```
+    
+    So, to assign null values to a variable, you need to declare the name variable as a nullable string and then during the access of this variable, you need to use a safe call operator i.e. ?.
+    ```kotlin
+    var name: String? = "MindOrks"
+    print(name?.length) // ok
+    name = null // ok
+    ```
+
+
 -   **What is the open keyword in Kotlin used for?**<br/>
 -   **Do we have a ternary operator in Kotlin just like java?**<br/>
 -   **How to convert a Kotlin source file to a Java source file?**<br/>
