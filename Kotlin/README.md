@@ -24,9 +24,9 @@ Quick Jump to Topics:
     Just like Java, the Kotlin code is also compiled into the Java bytecode and is executed at runtime by the Java Virtual Machine i.e. JVM. When a Kotlin file named ```Main.kt``` is compiled then it will eventually turn into a class and then the bytecode of the class will be generated. The name of the bytecode file will be ```MainKt.class``` and this file will be executed by the JVM.
 
 -   **Why should we use Kotlin?**<br/>
-    1)<b>Kotlin is concise</b>
-    2)<b>Kotlin is null-safe</b>
-    3)<b>Kotlin is interoperable</b>
+    1) <b>Kotlin is concise</b>
+    2) <b>Kotlin is null-safe</b>
+    3) <b>Kotlin is interoperable</b>
 
 -   **What is the difference between the variable declaration with var and val?**<br/>
     If you want to declare some mutable(changeable) variable, then you can use var . For the immutable variable, use val i.e. val variables can't be changed once assigned.
@@ -83,14 +83,14 @@ Quick Jump to Topics:
 -   **How to convert a Kotlin source file to a Java source file?**<br/>
     Steps to convert your Kotlin source file to Java source file:
     
-    1)<b>Open your Kotlin project in the IntelliJ IDEA / Android Studio.</b>
-    2)<b>Then navigate to Tools > Kotlin > Show Kotlin Bytecode.</b>
-    3)<b>Now click on the Decompile button to get your Java code from the bytecode.</b>
+    1) <b>Open your Kotlin project in the IntelliJ IDEA / Android Studio.</b>
+    2) <b>Then navigate to Tools > Kotlin > Show Kotlin Bytecode.</b>
+    3) <b>Now click on the Decompile button to get your Java code from the bytecode.</b>
 
 -   **What is the use of @JvmStatic, @JvmOverloads, and @JvmFiled in Kotlin?**<br/>
-    1)@JvmStatic: This annotation is used to tell the compiler that the method is a static method and can be used in Java code.</b>
-    2)<b>@JvmOverloads: To use the default values passed as an argument in Kotlin code from the Java code, we need to use the @JvmOverloads annotation.</b>
-    3)<b>@JvmField: To access the fields of a Kotlin class from Java code without using any getters and setters, we need to use the @JvmField in the Kotlin code.</b>
+    1) <b>@JvmStatic: This annotation is used to tell the compiler that the method is a static method and can be used in Java code.</b>
+    2) <b>@JvmOverloads: To use the default values passed as an argument in Kotlin code from the Java code, we need to use the @JvmOverloads annotation.</b>
+    3) <b>@JvmField: To access the fields of a Kotlin class from Java code without using any getters and setters, we need to use the @JvmField in the Kotlin code.</b>
 
 -   **Can we use primitive types such as int, double, float in Kotlin?**<br/>
 -   **What is String Interpolation in Kotlin?**<br/>
