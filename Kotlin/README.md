@@ -608,8 +608,75 @@ Quick Jump to Topics:
 ### Coroutines
 
 -   **What are Coroutines in Kotlin?**<br/>
+    A framework to manage concurrency in a more performant and simple way with its lightweight thread which is written on top of the actual threading framework to get the most out of it by taking the advantage of cooperative nature of functions.
+
 -   **What does it mean when I say "it doesn't map on the native thread"?**<br/>
+    Coroutines are available in many languages. Basically, there are two types of Coroutines:
+    1) Stackless
+    2) Stackful
+    
+    Kotlin implements stackless coroutines - it means that the coroutines don't have their own stack, so they don't map on the native thread.
+    
+    ***One can think of a coroutine as a light-weight thread. Like threads, coroutines can run in parallel, wait for each other and communicate. The biggest difference is that coroutines are very cheap, almost free: we can create thousands of them, and pay very little in terms of performance. True threads, on the other hand, are expensive to start and keep around. A thousand threads can be a serious challenge for a modern machine.***
+
+    ***Coroutines do not replace threads, it's more like a framework to manage them.***
+
 -   **What is Dispatchers in Kotlin Coroutines?**<br/>
+    Dispatchers help Coroutines in deciding the thread on which the task has to be done. We use Coroutines to perform certain tasks efficiently. Coroutines run the task on a particular thread. This is where the Dispatchers come into play. Coroutines take the help of Dispatchers in deciding the thread on which the task has to be done.
+    
+    Dispatchers in Kotlin Coroutines are like Schedulers in RxJava.
+
+    Very frequently we use the following Dispatchers in our Android project:
+    
+    1) <b>Dispatchers.Default:</b> We should use Dispatchers.Default to perform CPU-intensive tasks.
+            1) Doing heavy calculations like Matrix multiplications.
+            2) Doing any operations on a bigger list present in the memory like sorting, filtering, searching, etc.
+            3) Applying the filter on the Bitmap present in the memory, NOT by reading the image file present on the disk.
+            4) Parsing the JSON available in the memory, NOT by reading the JSON file present on the disk.
+            5) Scaling the bitmap already present in the memory, NOT by reading the image file present on the disk.
+            6) Any operations on the bitmap that are already present in the memory, NOT by reading the image file present on the disk.
+
+    ```kotlin
+    launch(Dispatchers.Default) {
+        // Your CPU-intensive task
+    }
+    ```
+
+    2) <b>Dispatchers.IO:</b> We should use Dispatchers.IO to perform disk or network I/O-related tasks. Example use cases:
+        1) Any network operations like making a network call.
+        2) Downloading a file from the server.
+        3) Moving a file from one location to another on disk.
+        4) Reading from a file.
+        5) Writing to a file.
+        6) Making a database query.
+        7) Loading the Shared Preferences.
+
+    ```kotlin
+    launch(Dispatchers.IO) {
+        // Your IO related task
+    }
+    ```
+
+    3) <b>Dispatchers.Main:</b> We should use Dispatchers.Main to run a coroutine on the main thread of Android. We all know where we use the main thread of Android. Mainly at the places where we interact with the UI and perform small tasks. Example use cases:
+        1) Performing UI-related tasks.
+        2) Any small tasks like any operations on a smaller list present in the memory like sorting, filtering, searching, etc.
+
+    ```kotlin
+    launch(Dispatchers.Main) {
+        // Your main thread related task
+    }
+    ```
+    However, when we go through the documentation, we have one more:
+
+    4) <b>Dispatchers.Unconfined:</b> We should use Dispatchers.Unconfined when we do not care where the coroutine will be executed. Example use case:
+        1) Unit Testing as Dispatchers.Unconfined does not change the thread.
+
+    ```kotlin
+    launch(Dispatchers.Unconfined) {
+        // Your task for which you do not care about the thread on which it should run.
+    }
+    ```
+
 -   **What is suspend function in Kotlin Coroutines?**<br/>
 -   **What is the difference between Launch and Async in Kotlin Coroutines?**<br/>
 -   **What is withContext in Kotlin Coroutines?**<br/>
