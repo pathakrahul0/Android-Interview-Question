@@ -43,9 +43,9 @@ Quick Jump to Topics:
         
         YourClassName {
             companion object {    
-            const val FILE_EXTENSION = ".png"    
-            val FILENAME: String
-            get() = "Img_" + System.currentTimeMillis() + FILE_EXTENSION 
+                const val FILE_EXTENSION = ".png"    
+                val FILENAME: String
+                get() = "Img_" + System.currentTimeMillis() + FILE_EXTENSION 
             }
         }
     ```
@@ -151,7 +151,7 @@ Quick Jump to Topics:
     ```kotlin
         var listOfExampleVariable = listOf("ExampleVariable.com", "blog.ExampleVariable.com", "afteracademy.com")
         listOfExampleVariable.forEach {
-        Log.d(TAG,it)
+            Log.d(TAG,it)
         }
     ```
 
@@ -238,21 +238,21 @@ Quick Jump to Topics:
 
     ```kotlin
         class Person {
-        lateinit var name: String
-        fun initializeName() {
-        println(this::name.isInitialized)
-        name = "ExampleVariable" // initializing name
-        println(this::name.isInitialized)
-        }
+            lateinit var name: String
+            fun initializeName() {
+                println(this::name.isInitialized)
+                name = "ExampleVariable" // initializing name
+                println(this::name.isInitialized)
+            }
         }
         fun main(args: Array<String>) {
-        Person().initializeName()
+            Person().initializeName()
         }
     ```
 
     The above function will return the following:
 
-    ```false```
+    ```false```</br>
     ```true```
 
 
@@ -292,12 +292,12 @@ Quick Jump to Topics:
 
     ```koltin
         class ToBeCalled {
-        companion object Test {
-        fun callMe() = println("You are calling me :)")
-        }
+            companion object Test {
+                fun callMe() = println("You are calling me :)")
+            }
         }
         fun main(args: Array<String>) {
-        ToBeCalled.callMe()
+            ToBeCalled.callMe()
         }
     ```
 
