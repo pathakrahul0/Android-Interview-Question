@@ -141,7 +141,7 @@ Quick Jump to Topics:
     ```
 
 -   **What is the difference between safe calls(?.) and null check(!!)?**<br/>
-    Safe call operator i.e. ?. is used to check if the value of the variable is null or not. If it is null then null will be returned otherwise it will return the desired value.
+    Safe call operator i.e. ```?.``` is used to check if the value of the variable is null or not. If it is null then null will be returned otherwise it will return the desired value.
 
     ```kotlin
     var name: String? = "MindOrks"
@@ -150,8 +150,8 @@ Quick Jump to Topics:
     println(name?.length) // null
     ```
 
-    If you want to throw NullPointerException when the value of the variable is null, then you can use the null check or !! operator.
-    
+    If you want to throw NullPointerException when the value of the variable is null, then you can use the null check or ```!!```operator.
+
     ```kotlin
     var name: String? = "MindOrks"
     println(name?.length) // 8
@@ -160,7 +160,7 @@ Quick Jump to Topics:
     ```
 
 -   **What is Elvis operator in Kotlin?**<br/>
-    In Kotlin, you can assign null values to a variable by using the null safety property. To check if a value is having null value then you can use if-else or can use the Elvis operator i.e. ?: For example:
+    In Kotlin, you can assign null values to a variable by using the null safety property. To check if a value is having null value then you can use if-else or can use the Elvis operator i.e. ```?:``` For example:
 
     ```kotlin
     var name:String? = "Mindorks"
@@ -168,7 +168,7 @@ Quick Jump to Topics:
     println(nameLength)
     ```
 
-    The Elvis operator( ?: ) used above will return the length of name if the value is not null otherwise if the value is null, then it will return -1 .
+    The Elvis operator( ```?:``` ) used above will return the length of name if the value is not null otherwise if the value is null, then it will return -1 .
 
 
 ### lateinit
