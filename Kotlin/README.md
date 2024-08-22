@@ -320,20 +320,16 @@ Quick Jump to Topics:
 
 -   **Companion object vs Object in Kotlin?**<br/>
     <b>Declaration:</b></br>
-        1) <b>companion object:</b> It is declared inside a class and is used to define properties and methods that belong to the class itself, rather than to instances of the class. The companion object is defined using the companion keyword.</br>
-
+        <b>companion object:</b> It is declared inside a class and is used to define properties and methods that belong to the class itself, rather than to instances of the class. The companion object is defined using the companion keyword.</br>
         <b>object:</b> It is declared outside of any class and is used to define a standalone singleton object. The object keyword is used to declare and define the object.</br>
     <b>Accessibility:</b></br>
-        2) <b>companion object:</b> The properties and methods defined inside a companion object can be accessed using the class name, similar to accessing static members in Java. They are visible and accessible within the class.</br>
-
+        <b>companion object:</b> The properties and methods defined inside a companion object can be accessed using the class name, similar to accessing static members in Java. They are visible and accessible within the class.</br>
         <b>object:</b> The properties and methods defined inside an object can be accessed directly using the object's name. They are globally accessible, similar to a top-level function or property.</br>
     <b>Inheritance and Interfaces:</b></br>
-        3) <b>companion object:</b> A companion object can implement interfaces and inherit from other classes. It can also be accessed through the class it is defined in.</br>
-
+        <b>companion object:</b> A companion object can implement interfaces and inherit from other classes. It can also be accessed through the class it is defined in.</br>
         <b>object:</b> An object cannot inherit from a class or implement interfaces. It is a standalone singleton and cannot be accessed through any class.</br>
     <b>Naming:</b></br>
-        4) <b>companion object:</b> A class can have only one companion object, and it does not have a separate name. It is always called a companion.</br>
-        
+        <b>companion object:</b> A class can have only one companion object, and it does not have a separate name. It is always called a companion.</br>
         <b>object:</b> Each object has a unique name and can be referred to using that name.</br>
 
 ### constructors
