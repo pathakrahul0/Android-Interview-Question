@@ -702,33 +702,34 @@ Quick Jump to Topics:
 -   **What are Scopes in Kotlin Coroutines?**<br/>
     Scopes in Kotlin Coroutines are very useful because we need to cancel the background task as soon as the activity is destroyed.
     
-    <b>Activity Scope Example<b>
-        Assuming that our activity is the scope, the background task should get canceled as soon as the activity is destroyed.
-        
-        In the activity, we should use ```lifecycleScope``` to launch a coroutine.
+    <b>Activity Scope Example</b></br>
+    
+    Assuming that our activity is the scope, the background task should get canceled as soon as the activity is destroyed.
+    
+    In the activity, we should use ```lifecycleScope``` to launch a coroutine.
 
-        ```kotlin
-        class MainActivity : AppCompatActivity() {
-            override fun onCreate(savedInstanceState: Bundle?) {
-                super.onCreate(savedInstanceState)
-                lifecycleScope.launch {
-                    val user = fetchUser()
-                    // show user
-                }
-
+    ```kotlin
+    class MainActivity : AppCompatActivity() {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            lifecycleScope.launch {
+                val user = fetchUser()
+                // show user
             }
-            suspend fun fetchUser(): User {
-                return withContext(Dispatchers.IO) {
-                    // fetch user
-                    // return user
-                }
+
+        }
+        suspend fun fetchUser(): User {
+            return withContext(Dispatchers.IO) {
+                // fetch user
+                // return user
             }
         }
-        ```
+    }
+    ```
 
     As soon as the activity is destroyed, the task will get canceled if it is running because we have used the scope which is bind to the LifeCycle of the Activity.
     
-    <b>ViewModel Scope Example</b>
+    <b>ViewModel Scope Example</b></br>
 
     Assuming that our ViewModel is the scope, the background task should get canceled as soon as the ViewModel is destroyed.
     
