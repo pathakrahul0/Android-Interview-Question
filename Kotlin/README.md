@@ -111,9 +111,9 @@ Quick Jump to Topics:
 
 -   **What is the equivalent of Java static methods in Kotlin?**<br/>
     To achieve the functionality similar to Java static methods in Kotlin, we can use:
-    1)companion object
-    2)package-level function
-    3)object
+    1) companion object
+    2) package-level function
+    3) object
 
 -   **Can we use the new keyword to instantiate a class object in Kotlin?**<br/>
     No, in Kotlin we don't have to use the new keyword to instantiate a class object. To instantiate a class object, simply we use:
@@ -155,6 +155,56 @@ Quick Jump to Topics:
     var listOfExampleVariable = listOf("ExampleVariable.com", "blog.ExampleVariable.com", "afteracademy.com")
     listOfExampleVariable.forEach {
         Log.d(TAG,it)
+    }
+    ```
+
+-   **What is the use of vararg keyword in Kotlin?**<br/>
+    varargs are used to pass unlimited variables to the constructor.
+
+    ```kotlin
+    fun sum(vararg values : Int) =  values.sum()
+    assertEquals(5, sum(2,3)) // true
+    ```
+
+    Note: Only one vararg can be passed to a function. Multiple varargs leads to compilation error.
+
+-   **What are Destructuring Declarations in Kotlin?**<br/>
+    Destructuring declarations allows us to destructure an object to various variables.
+
+    Let us take a data class for example. We know that whenever we pass args to data class, Kotlin creates a component for each arg, named - component1(), component2() etc.
+
+    Destructured declarations simply points to those components in the same order respectively.
+
+    Here's an example:
+
+    ```kotlin
+    data class Person(val name: String, val age: Int)
+
+    // destructuring declarations
+    val (username, userAge) = Person("vamsi", "21")
+    println(username) // vamsi
+    ```
+
+    Here these username and userAge will directly point to the component functions of data class internally as follows:
+
+    ```kotlin
+    val username = Person.component1()
+    val userAge = Person.component2()
+    ```
+
+-   **What are Reified types in Kotlin?**<br/>
+    When you are using the concept of Generics to pass some class as a parameter to some function and you need to access the type of that class, then you need to use the reified keyword in Kotlin.
+    
+    For example:
+
+    ```kotlin
+    inline fun <reified T> genericsExample(value: T) {
+        println(value)
+        println("Type of T: ${T::class.java}")
+    }
+    fun main() {
+        genericsExample<String>("Learning Generics!")
+        genericsExample<Int>(100)
     }
     ```
 
@@ -387,17 +437,77 @@ Quick Jump to Topics:
     ```kotlin
     data class Developer(val name: String, val age: Int)
     ```
-    When we mark a class as a data class, you don’t have to implement or create the following functions like we do in Java: ```hashCode()``` , ```equals()``` , ```toString()``` , ```copy()```. The compiler automatically creates these internally, so it also leads to clean code. Although, there are few other requirements that data classes need to fulfill.
+    When we mark a class as a data class, you don’t have to implement or create the following functions like we do in Java: ```hashCode()``` , ```equals()``` , ```toString()``` , ```copy()```. The compiler automatically creates these internally, so it also leads to clean code. 
     
-    Although, there are few requirements that data classes need to fulfill:
+    The main uses of data classes -
     1) The primary constructor needs to have at least one parameter.
     2) All primary constructor parameters need to be marked as val or var
+    3) They also can inherit classes and interfaces
+    4) They can be used for destructuring declarations
+    5) They can be easily copied structurally using copy() function
+
+    Limitations of Data Classes:
+    1) They cannot inherit another data class
+    2) varargs cannot be used as arguments in data class as the data class internally needs to generate toString() and hashcode() method's logic.
     3) Data classes cannot be abstract, open, sealed, or inner.
+    
+-   **If we create two data class objects with same data then are they equal?**<br/>
+    Those two data are objects are equal structurally but not referentially.
+    
+    Here is an example:
+
+    ```kotlin
+    data class Person(name:String)
+    //creating objects for data class
+    val a = Person("Vamsi")
+    val b = Person("Vamsi")
+    println(a==b) // true; a normal class (without .equals() overridden) would return false in this case
+    println(a===b) // false
+    ```
 
 
 ### Sealed Class
 
 -   **What is a Sealed class in Kotlin?**<br/>
+    Sealed classes are similar to enum classes which also has restrictive set of types allowed, except that Sealed classes can contains additional data to be propagated(which we cannot achieve with enum classes).
+
+    ```kotlin
+    sealed class Result<out T: Any> {
+        data class Success<out T: Any>(val data: T): Result<T>()
+        data class Error(val exception: Exception): Result<Nothing>()
+    }
+    ```
+
+    Sealed classes can contain any other clases like data class, pojo class, or even other sealed classes.
+
+-   **What are the benefits of using a Sealed Class over Enum?**<br/>
+    Sealed classes give us the flexibility of having different types of subclasses and also containing the state . The important point to be noted here is the subclasses that are extending the Sealed classes should be either nested classes of the Sealed class or should be declared in the same file as that of the Sealed class.
+
+-   **What are the benefits of using a Sealed Class over Abstract Classes?**<br/>
+    Sealed class should contain all the hierarchies(subclasses) in the same file or module whereas an Abstract class can have its hierarchies(subclasses) anywhere in the project.
+    
+    Sealed class helps the IDE to understand the different types(subclassed i.e. hierarchies) involved and thereby helps the developer in auto-filling and avoiding spelling mistakes.
+    
+    We can take advantage of the auto-fill feature in these cases when we use the “when” block in the case of abstract classes we need to provide an else block explicitly but when we sealed the class there is no requirement to add an else case because IDE is already aware of restricted hierarchies defined.
+
+    ```kotlin
+    val shape: Shape = Rectangle(10, 12)
+    val value = when(shape) {
+        is Circle -> {
+            "You have selected circle shape!"
+        }
+        is Square -> {
+            "You have selected Square shape!"
+        }
+        is Rectangle -> {
+            "You have selected Rectangle shape!"
+        }
+        is NotAShape -> {
+            "You have selected NotAShape shape!"
+        }
+        //no else case is required since all cases are handled
+    }
+    ```
 
 ### Lambdas Expressions
 
@@ -597,6 +707,19 @@ Quick Jump to Topics:
     
     Advantage of ```inline``` function: Function call overhead doesn't occur. Less overhead and faster program execution.
 
+    ```kotlin
+    inline fun SharedPreferences.edit(commit: Boolean = false, action: SharedPreferences.Editor.() -> Unit) {
+        val editor = edit()
+        action(editor)
+        if(commit)
+            editor.commit()
+        else
+            editor.apply()
+    }
+    ```
+
+    Inline functions are generally used when we need to pass small functions as parameters. It is generally not advisable to pass large functions to inline functions.
+
 -   **What is noinline in Kotlin?**<br/>
     While using an inline function and want to pass some lambda function and not all lambda function as inline, then you can explicitly tell the compiler which lambda it shouldn't inline.
 
@@ -699,11 +822,13 @@ Quick Jump to Topics:
     3) ```withContext``` does not launch a coroutine and it is just a ```suspend``` function used for shifting the context of the existing coroutine.
 
 -   **What is runBlocking in Kotlin Coroutines?**<br/>
+    runBlocking is a coroutine function. By not providing any context, it will get run on the main thread. Runs a new coroutine and blocks the current thread interruptible until its completion. This function should not be used from a coroutine. It is designed to bridge regular blocking code to libraries that are written in suspending style, to be used in main functions and in tests.
+
 -   **What are Scopes in Kotlin Coroutines?**<br/>
     Scopes in Kotlin Coroutines are very useful because we need to cancel the background task as soon as the activity is destroyed.
     
     <b>Activity Scope Example</b></br>
-    
+
     Assuming that our activity is the scope, the background task should get canceled as soon as the activity is destroyed.
     
     In the activity, we should use ```lifecycleScope``` to launch a coroutine.
@@ -759,6 +884,12 @@ Quick Jump to Topics:
     1) Generic way
     2) Using CoroutineExceptionHandler
     3) Using SupervisorScope
+
+-   **Does Coroutine runs in a Single thread?**<br/>
+    A coroutine is not bound to any particular thread. It may suspend its execution in one thread and resume in another one.
+
+
+
 
 
 
