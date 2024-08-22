@@ -93,8 +93,22 @@ Quick Jump to Topics:
     3) <b>@JvmField:</b> To access the fields of a Kotlin class from Java code without using any getters and setters, we need to use the @JvmField in the Kotlin code.
 
 -   **Can we use primitive types such as int, double, float in Kotlin?**<br/>
+    In Kotlin, we can't use primitive types directly. We can use classes like Int, Double, etc. as an object wrapper for primitives. But the compiled bytecode has these primitive types.
+
 -   **What is String Interpolation in Kotlin?**<br/>
+    If you want to use some variable or perform some operation inside a string then String Interpolation can be used. You can use the $ sign to use some variable in the string or can perform some operation in between ```{}``` sign.
+    
+    ```kotlin
+    var name = "MindOrks"
+    print("Hello! I am learning from $name")
+    ```
+
 -   **What is the equivalent of Java static methods in Kotlin?**<br/>
+    To achieve the functionality similar to Java static methods in Kotlin, we can use:
+    .)companion object
+    .)package-level function
+    .)object
+
 -   **Can we use the new keyword to instantiate a class object in Kotlin?**<br/>
 -   **What are visibility modifiers in Kotlin?**<br/>
 
