@@ -33,20 +33,21 @@ Quick Jump to Topics:
 
 -   **What is the difference between the variable declaration with val and const?**<br/>
     Both the variables that are declared with val and const are immutable in nature. But the value of the const variable must be known at the compile-time whereas the value of the val variable can be assigned at runtime also.
+   
     ```kotlin
-    const val companyName = "MindOrks" // this will work
-    val comapanyname = "MindOrks" // this will work
-    
-    const val companyName = getCompanyName() // will not work
-    val companyName = getCompanyName() // this will work
-    
-    YourClassName {
-        companion object {    
-        const val FILE_EXTENSION = ".png"    
-        val FILENAME: String
-        get() = "Img_" + System.currentTimeMillis() + FILE_EXTENSION 
+        const val companyName = "ExampleVariable" // this will work
+        val comapanyname = "ExampleVariable" // this will work
+        
+        const val companyName = getCompanyName() // will not work
+        val companyName = getCompanyName() // this will work
+        
+        YourClassName {
+            companion object {    
+            const val FILE_EXTENSION = ".png"    
+            val FILENAME: String
+            get() = "Img_" + System.currentTimeMillis() + FILE_EXTENSION 
+            }
         }
-    }
     ```
     
     In the above example, we are declaring the ```const``` variable named ```FILE_EXTENSION``` in the companion object and the ```FILENAME``` variable as ```val``` and initialise it with custom getter.
@@ -54,24 +55,26 @@ Quick Jump to Topics:
     What happens after the code compilation is that wherever the ```const``` variables are used in the code, those variables are replaced by the value of that ```const``` variable but in case of ```val``` , the variables are kept as it is because we don't know the value of ```val``` at compile-time. So, if you decompile the above code, then you will see
     
     ```kotlin
-    public final String getFILENAME() {
-        return "Img_" + System.currentTimeMillis() + ".png";
-    }
+        public final String getFILENAME() {
+            return "Img_" + System.currentTimeMillis() + ".png";
+        }
     ```
     Here, you can find that the variable ```FILE_EXTENSION``` has been replaced by its value i.e. "```.png```" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using ```const``` over ```val``` .
 
 -   **How to choose between a switch and when in Kotlin?**<br/>
     One of the major advantages of using Kotlin is null safety. In Java, if you access some null variable then you will get a NullPointerException . So, the following code in Kotlin will produce a compile-time error:
+    
     ```kotlin
-    var name: String = "MindOrks"
-    name = null //error
+        var name: String = "ExampleVariable"
+        name = null //error
     ```
     
     So, to assign null values to a variable, you need to declare the name variable as a nullable string and then during the access of this variable, you need to use a safe call operator i.e. ?.
+   
     ```kotlin
-    var name: String? = "MindOrks"
-    print(name?.length) // ok
-    name = null // ok
+        var name: String? = "ExampleVariable"
+        print(name?.length) // ok
+        name = null // ok
     ```
 
 -   **What is the open keyword in Kotlin used for?**<br/>
@@ -99,8 +102,8 @@ Quick Jump to Topics:
     If you want to use some variable or perform some operation inside a string then String Interpolation can be used. You can use the $ sign to use some variable in the string or can perform some operation in between ```{}``` sign.
     
     ```kotlin
-    var name = "MindOrks"
-    print("Hello! I am learning from $name")
+        var name = "ExampleVariable"
+        print("Hello! I am learning from $name")
     ```
 
 -   **What is the equivalent of Java static methods in Kotlin?**<br/>
@@ -111,8 +114,9 @@ Quick Jump to Topics:
 
 -   **Can we use the new keyword to instantiate a class object in Kotlin?**<br/>
     No, in Kotlin we don't have to use the new keyword to instantiate a class object. To instantiate a class object, simply we use:
+  
     ```kotlin
-    var varName = ClassName()
+        var varName = ClassName()
     ```
 
 -   **What are visibility modifiers in Kotlin?**<br/>
@@ -125,17 +129,43 @@ Quick Jump to Topics:
 
     Note: By default, the visibility modifier in Kotlin is public .
 
+-   **Is there any difference between == operator and === operator?**<br/>
+    Yes. The == operator is used to compare the values stored in variables and the === operator is used to check if the reference of the variables are equal or not. But in the case of primitive types, the === operator also checks for the value and not reference.
+
+    ```kotlin
+        // primitive example
+        val int1 = 10 
+        val int2 = 10
+        println(int1 == int2) // true
+        println(int1 === int2) // true
+        // wrapper example
+        val num1 = Integer(10)
+        val num2 = Integer(10)
+        println(num1 == num2) // true
+        println(num1 === num2) //false
+    ```
+
+-   **Is there any difference between == operator and === operator?**<br/>
+    In Kotlin, to use the functionality of a for-each loop just like in Java, we use a forEach function. The following is an example of the same:
+   
+    ```kotlin
+        var listOfExampleVariable = listOf("ExampleVariable.com", "blog.ExampleVariable.com", "afteracademy.com")
+        listOfExampleVariable.forEach {
+        Log.d(TAG,it)
+        }
+    ```
+
 ### null safety
 
 -   **How to ensure null safety in Kotlin?**<br/>
     One of the major advantages of using Kotlin is null safety. In Java, if you access some null variable then you will get a NullPointerException . So, the following code in Kotlin will produce a compile-time error:
 
     ```kotlin
-        var name: String = "MindOrks"
+        var name: String = "ExampleVariable"
         name = null //error
 
         So, to assign null values to a variable, you need to declare the name variable as a nullable string and then during the access of this variable, you need to use a safe call operator i.e. ?.
-        var name: String? = "MindOrks"
+        var name: String? = "ExampleVariable"
         print(name?.length) // ok
         name = null // ok
     ```
@@ -144,57 +174,189 @@ Quick Jump to Topics:
     Safe call operator i.e. ```?.``` is used to check if the value of the variable is null or not. If it is null then null will be returned otherwise it will return the desired value.
 
     ```kotlin
-    var name: String? = "MindOrks"
-    println(name?.length) // 8
-    name = null
-    println(name?.length) // null
+        var name: String? = "ExampleVariable"
+        println(name?.length) // 8
+        name = null
+        println(name?.length) // null
     ```
 
     If you want to throw NullPointerException when the value of the variable is null, then you can use the null check or ```!!```operator.
 
     ```kotlin
-    var name: String? = "MindOrks"
-    println(name?.length) // 8
-    name = null
-    println(name!!.length) // KotlinNullPointerException
+        var name: String? = "ExampleVariable"
+        println(name?.length) // 8
+        name = null
+        println(name!!.length) // KotlinNullPointerException
     ```
 
 -   **What is Elvis operator in Kotlin?**<br/>
     In Kotlin, you can assign null values to a variable by using the null safety property. To check if a value is having null value then you can use if-else or can use the Elvis operator i.e. ```?:``` For example:
 
     ```kotlin
-    var name:String? = "Mindorks"
-    val nameLength = name?.length ?: -1
-    println(nameLength)
+        var name:String? = "ExampleVariable"
+        val nameLength = name?.length ?: -1
+        println(nameLength)
     ```
 
-    The Elvis operator( ```?:``` ) used above will return the length of name if the value is not null otherwise if the value is null, then it will return -1 .
-
+    The Elvis operator(```?:```) used above will return the length of name if the value is not null otherwise if the value is null, then it will return -1 .
 
 ### lateinit
 
 -   **When to use the lateinit keyword in Kotlin?**<br/>
+    ```lateinit``` is late initialization. Normally, properties declared as having a non-null type must be initialized in the constructor. However, fairly often this is not convenient.
+    
+    ```lateinit``` in Kotlin is useful in a scenario when we do not want to initialize a variable at the time of the declaration and want to initialize it at some later point in time, but we make sure that we initialize it before use.
+    
+    One way(that is not a good way) to achieve this is by creating a ```nullable``` variable as below:
+    
+    ```koltin
+        private var mentor: Mentor? = null
+    ```
+    
+    And as we all know that there is always a better way in Kotlin to achieve what we need.
+    
+    What if we do not want to make the variable ```nullable```?
+    The answer is ```lateinit```.
+    Let's update our code:
+    
+    ```kotlin
+        private lateinit var mentor: Mentor
+    ```
+    Here, we can notice that the ```lateinit``` keyword and also the variable is ```non-nullable```.
+    
+    Things to consider when we use the ```lateinit``` property:
+    
+    1)Can be only used with the var keyword.
+    2)Can be only used with a non-nullable variable.
+    3)Should be used if the variable is mutable and can be initialized later.
+    4)Should be used if you are sure about the initialization before use.
+    
+    For example, properties can be initialized through dependency injection, or in the setup method of a unit test. In this case, you cannot supply a non-null initializer in the constructor, but you still want to avoid null checks when referencing the property inside the body of a class. To handle this case, you can mark the property with the lateinit modifier.
+
 -   **How to check if a lateinit variable has been initialized or not?**<br/>
+    You can check if the lateinit variable has been initialized or not before using it with the help of isInitialized method. This method will return true if the lateinit property has been initialized otherwise it will return false. For example:
+
+    ```kotlin
+        class Person {
+        lateinit var name: String
+        fun initializeName() {
+        println(this::name.isInitialized)
+        name = "ExampleVariable" // initializing name
+        println(this::name.isInitialized)
+        }
+        }
+        fun main(args: Array<String>) {
+        Person().initializeName()
+        }
+    ```
+
+    The above function will return the following:
+
+    ```false```
+    ```true```
+
 
 ### lazy
 
 -   **What is the difference between lateinit and lazy in Kotlin?**<br/>
+    Things to consider when we use the ```lateinit``` property:
+   
+    1)Can be only used with the var keyword.
+    2)Can be only used with a non-nullable variable.
+    3)Should be used if the variable is mutable and can be initialized later.
+    4)Should be used if you are sure about the initialization before use.
+    
+    Things to consider when we use the lazy property:
+    1)Can be only used with the val keyword, hence read-only property.
+    2)We want the variable to be initialized only if we need it for the first time.
+    3)Must understand that it only creates the object when we access it for the very first time and
+    then in the subsequent access, it returns the same object.
+
+    ```kotlin
+        class Session {
+            private val mentor: Mentor by lazy { Mentor() }
+        }
+    ```
+
+    Suppose Mentor is an expensive object. And Session is the object that is dependent on the Mentor object. If Mentor object creation takes time, it will delay the creation of Session object. So, this is where the lazy keyword in Kotlin will help us.
 
 
 ### companion objects
 
 -   **What are companion objects in Kotlin?**<br/>
+    In Kotlin, if you want to write a function or any member of the class that can be called without having the instance of the class then you can write the same as a member of a companion object inside the class.
+
+    ```koltin
+        To create a companion object, you need to add the companion keyword in front of the object declaration.
+        The following is an example of a companion object in Kotlin:
+        class ToBeCalled {
+        companion object Test {
+        fun callMe() = println("You are calling me :)")
+        }
+        }
+        fun main(args: Array<String>) {
+        ToBeCalled.callMe()
+        }
+    ```
 
 ### object
 
 -   **How to create a Singleton class in Kotlin?**<br/>
+    A singleton class is a class that is defined in such a way that only one instance of the class can be created and is used where we need only one instance of the class like in logging, database connections, etc.
+    
+    To create a Singleton class in Kotlin, you need to use the object keyword.
+    
+    ```kotlin
+        object AnySingletonClassName
+    ```
+
+    Note: You can't use constructor in object, but you can use init.
+
 
 ### constructors
 
 -   **What are the types of constructors in Kotlin?**<br/>
+    1)<b>Primary constructor:</b> These constructors are defined in the class header and you can't perform some operation in it, unlike Java's constructor.
+    2)<b>Secondary constructor:</b> These constructors are declared inside the class body by using the constructor keyword. You must call the primary constructor from the secondary constructor explicitly. Also, the property of the class can’t be declared inside the secondary constructor. There can be more than one secondary constructors in Kotlin.
+
 -   **Is there any relationship between primary and secondary constructors?**<br/>
+    Yes, when using a secondary constructor, you need to call the primary constructor explicitly.
+
 -   **What is the default type of argument used in a constructor?**<br/>
+    By default, the type of arguments of a constructor in val. But you can change it to var explicitly.
+
+-   **Default arguments vs Named arguments**<br/>
+    <b>Default arguments</b> allow you to specify a default value for a function parameter. This means that if the parameter is not explicitly passed in when the function is called, it will use the default value instead.
+
+    Here’s an example:
+
+    ```kotlin
+        fun greet(name: String = "World") {
+            println("Hello, $name!")
+        }
+
+        // Call with argument
+        greet("John") // Output: Hello, John!
+
+        // Call without argument
+        greet() // Output: Hello, World!
+    ```
+
+    <b>Named arguments</b> in Kotlin to allow you to pass arguments to a function by name, rather than by position. This can be useful when calling functions that have many parameters, or when you want to make the code more readable. 
+
+    Here’s an example:
+
+    ```kotlin
+        fun printName(firstName: String, lastName: String) {
+            println("First name: $firstName, Last name: $lastName")
+        }
+
+        // Call with named arguments
+        printName(lastName = "Doe", firstName = "John") // Output: First name: John, Last name: Doe
+    ```
+        
 -   **What are init blocks in Kotlin?**<br/>
+    ```init``` blocks are initializer blocks that are executed just after the execution of the primary constructor. A class file can have one or more init blocks that will be executed in series. If you want to perform some operation in the primary constructor, then it is not possible in Kotlin, for that, you need to use the init block.
 
 ### Data Class
 
