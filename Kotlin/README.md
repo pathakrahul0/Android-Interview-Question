@@ -319,18 +319,18 @@ Quick Jump to Topics:
     Note: You can't use constructor in object, but you can use init.
 
 -   **Companion object vs Object in Kotlin?**<br/>
-    <b>Declaration:</b>
-        companion object:  It is declared inside a class and is used to define properties and methods that belong to the class itself, rather than to instances of the class. The companion object is defined using the companion keyword.
-        object: It is declared outside of any class and is used to define a standalone singleton object. The object keyword is used to declare and define the object.
-    <b>Accessibility:</b>
-        companion object: The properties and methods defined inside a companion object can be accessed using the class name, similar to accessing static members in Java. They are visible and accessible within the class.
-        object: The properties and methods defined inside an object can be accessed directly using the object's name. They are globally accessible, similar to a top-level function or property.
-    <b>Inheritance and Interfaces:</b>
-        companion object: A companion object can implement interfaces and inherit from other classes. It can also be accessed through the class it is defined in.
-        object: An object cannot inherit from a class or implement interfaces. It is a standalone singleton and cannot be accessed through any class.
-    <b>Naming:</b>
-        companion object: A class can have only one companion object, and it does not have a separate name. It is always called a companion.
-        object: Each object has a unique name and can be referred to using that name.
+    <b>Declaration:</b></br>
+        companion object:It is declared inside a class and is used to define properties and methods that belong to the class itself, rather than to instances of the class. The companion object is defined using the companion keyword.</br>
+        object: It is declared outside of any class and is used to define a standalone singleton object. The object keyword is used to declare and define the object.</br>
+    <b>Accessibility:</b></br>
+        companion object: The properties and methods defined inside a companion object can be accessed using the class name, similar to accessing static members in Java. They are visible and accessible within the class.</br>
+        object: The properties and methods defined inside an object can be accessed directly using the object's name. They are globally accessible, similar to a top-level function or property.</br>
+    <b>Inheritance and Interfaces:</b></br>
+        companion object: A companion object can implement interfaces and inherit from other classes. It can also be accessed through the class it is defined in.</br>
+        object: An object cannot inherit from a class or implement interfaces. It is a standalone singleton and cannot be accessed through any class.</br>
+    <b>Naming:</b></br>
+        companion object: A class can have only one companion object, and it does not have a separate name. It is always called a companion.</br>
+        object: Each object has a unique name and can be referred to using that name.</br>
 
 ### constructors
 
