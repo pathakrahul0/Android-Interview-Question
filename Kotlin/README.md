@@ -57,9 +57,9 @@ Quick Jump to Topics:
     public final String getFILENAME() {
         return "Img_" + System.currentTimeMillis() + ".png";
     }
-   ```
+    ```
    
-   Here, you can find that the variable FILE_EXTENSION has been replaced by its value i.e. ".png" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using const over val .
+   Here, you can find that the variable ```FILE_EXTENSION``` has been replaced by its value i.e. "```.png```" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using const over val .
 
 -   **How to choose between a switch and when in Kotlin?**<br/>
 -   **What is the open keyword in Kotlin used for?**<br/>
