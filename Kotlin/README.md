@@ -286,9 +286,11 @@ Quick Jump to Topics:
 -   **What are companion objects in Kotlin?**<br/>
     In Kotlin, if you want to write a function or any member of the class that can be called without having the instance of the class then you can write the same as a member of a companion object inside the class.
 
+    To create a companion object, you need to add the companion keyword in front of the object declaration.
+    
+    The following is an example of a companion object in Kotlin:
+
     ```koltin
-        To create a companion object, you need to add the companion keyword in front of the object declaration.
-        The following is an example of a companion object in Kotlin:
         class ToBeCalled {
         companion object Test {
         fun callMe() = println("You are calling me :)")
