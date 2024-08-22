@@ -320,23 +320,23 @@ Quick Jump to Topics:
 
 -   **Companion object vs Object in Kotlin?**<br/>
     <b>Declaration:</b></br>
-        <b>companion object:</b> It is declared inside a class and is used to define properties and methods that belong to the class itself, rather than to instances of the class. The companion object is defined using the companion keyword.</br>
+        1) <b>companion object:</b> It is declared inside a class and is used to define properties and methods that belong to the class itself, rather than to instances of the class. The companion object is defined using the companion keyword.</br>
         <b>object:</b> It is declared outside of any class and is used to define a standalone singleton object. The object keyword is used to declare and define the object.</br>
     <b>Accessibility:</b></br>
-        <b>companion object:</b> The properties and methods defined inside a companion object can be accessed using the class name, similar to accessing static members in Java. They are visible and accessible within the class.</br>
+        2) <b>companion object:</b> The properties and methods defined inside a companion object can be accessed using the class name, similar to accessing static members in Java. They are visible and accessible within the class.</br>
         <b>object:</b> The properties and methods defined inside an object can be accessed directly using the object's name. They are globally accessible, similar to a top-level function or property.</br>
     <b>Inheritance and Interfaces:</b></br>
-        <b>companion object:</b> A companion object can implement interfaces and inherit from other classes. It can also be accessed through the class it is defined in.</br>
+        3) <b>companion object:</b> A companion object can implement interfaces and inherit from other classes. It can also be accessed through the class it is defined in.</br>
         <b>object:</b> An object cannot inherit from a class or implement interfaces. It is a standalone singleton and cannot be accessed through any class.</br>
     <b>Naming:</b></br>
-        <b>companion object:</b> A class can have only one companion object, and it does not have a separate name. It is always called a companion.</br>
+        4) <b>companion object:</b> A class can have only one companion object, and it does not have a separate name. It is always called a companion.</br>
         <b>object:</b> Each object has a unique name and can be referred to using that name.</br>
 
 ### constructors
 
 -   **What are the types of constructors in Kotlin?**<br/>
-    1)<b>Primary constructor:</b> These constructors are defined in the class header and you can't perform some operation in it, unlike Java's constructor.
-    2)<b>Secondary constructor:</b> These constructors are declared inside the class body by using the constructor keyword. You must call the primary constructor from the secondary constructor explicitly. Also, the property of the class can’t be declared inside the secondary constructor. There can be more than one secondary constructors in Kotlin.
+    1) <b>Primary constructor:</b> These constructors are defined in the class header and you can't perform some operation in it, unlike Java's constructor.
+    2) <b>Secondary constructor:</b> These constructors are declared inside the class body by using the constructor keyword. You must call the primary constructor from the secondary constructor explicitly. Also, the property of the class can’t be declared inside the secondary constructor. There can be more than one secondary constructors in Kotlin.
 
 -   **Is there any relationship between primary and secondary constructors?**<br/>
     Yes, when using a secondary constructor, you need to call the primary constructor explicitly.
