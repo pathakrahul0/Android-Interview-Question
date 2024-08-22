@@ -2,7 +2,13 @@
 
 Quick Jump to Topics:
  > * [Basic](#basic)
+ >> * [null safety](#null-safety)
+ >> * [lateinit](#lateinit)
+ >> * [lazy](#lazy)
+ >> * [companion objects](#companion-objects)
+ >> * [object](#object)
  > * [Data Class](#data-class)
+ > * [Sealed Class](#sealed-class)
  > * [Lambdas Expressions](#lambdas-expressions)
  > * [Higher-Order functions](#higher-order-functions)
  > * [Extension Functions](#extension-functions)
@@ -17,30 +23,48 @@ Quick Jump to Topics:
 -   **Why should we use Kotlin?**<br/>
 -   **What is the difference between the variable declaration with var and val?**<br/>
 -   **What is the difference between the variable declaration with val and const?**<br/>
--   **How to ensure null safety in Kotlin?**<br/>
--   **What is the difference between safe calls(?.) and null check(!!)?**<br/>
--   **Do we have a ternary operator in Kotlin just like java?**<br/>
--   **What is Elvis operator in Kotlin?**<br/>
--   **How to convert a Kotlin source file to a Java source file?**<br/>
--   **What is the use of @JvmStatic, @JvmOverloads, and @JvmFiled in Kotlin?**<br/>
--   **Can we use primitive types such as int, double, float in Kotlin?**<br/>
--   **What is String Interpolation in Kotlin?**<br/>
--   **When to use the lateinit keyword in Kotlin?**<br/>
--   **How to check if a lateinit variable has been initialized or not?**<br/>
--   **What is the difference between lateinit and lazy in Kotlin?**<br/>
--   **What is the equivalent of Java static methods in Kotlin?**<br/>
--   **Can we use the new keyword to instantiate a class object in Kotlin?**<br/>
--   **What are visibility modifiers in Kotlin?**<br/>
--   **What are companion objects in Kotlin?**<br/>
--   **How to create a Singleton class in Kotlin?**<br/>
 -   **What are init blocks in Kotlin?**<br/>
 -   **What are the types of constructors in Kotlin?**<br/>
 -   **Is there any relationship between primary and secondary constructors?**<br/>
 -   **What is the default type of argument used in a constructor?**<br/>
 -   **How to choose between a switch and when in Kotlin?**<br/>
 -   **What is the open keyword in Kotlin used for?**<br/>
+-   **Do we have a ternary operator in Kotlin just like java?**<br/>
+-   **How to convert a Kotlin source file to a Java source file?**<br/>
+-   **What is the use of @JvmStatic, @JvmOverloads, and @JvmFiled in Kotlin?**<br/>
+-   **Can we use primitive types such as int, double, float in Kotlin?**<br/>
+-   **What is String Interpolation in Kotlin?**<br/>
+-   **What is the equivalent of Java static methods in Kotlin?**<br/>
+-   **Can we use the new keyword to instantiate a class object in Kotlin?**<br/>
+-   **What are visibility modifiers in Kotlin?**<br/>
+
+### null safety
+
+-   **How to ensure null safety in Kotlin?**<br/>
+-   **What is the difference between safe calls(?.) and null check(!!)?**<br/>
+-   **What is Elvis operator in Kotlin?**<br/>
+
+
+### lateinit
+
+-   **When to use the lateinit keyword in Kotlin?**<br/>
+-   **How to check if a lateinit variable has been initialized or not?**<br/>
+
+### lazy
+-   **What is the difference between lateinit and lazy in Kotlin?**<br/>
+
+
+### companion objects
+-   **What are companion objects in Kotlin?**<br/>
+
+### object
+-   **How to create a Singleton class in Kotlin?**<br/>
+
 
 ### Data Class
+-   **What is a data class in Kotlin?**<br/>
+
+### Sealed Class
 -   **What is a data class in Kotlin?**<br/>
 
 ### Lambdas Expressions
