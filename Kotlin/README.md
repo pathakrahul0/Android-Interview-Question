@@ -24,9 +24,9 @@ Quick Jump to Topics:
     Just like Java, the Kotlin code is also compiled into the Java bytecode and is executed at runtime by the Java Virtual Machine i.e. JVM. When a Kotlin file named ```Main.kt``` is compiled then it will eventually turn into a class and then the bytecode of the class will be generated. The name of the bytecode file will be ```MainKt.class``` and this file will be executed by the JVM.
 
 -   **Why should we use Kotlin?**<br/>
-    1) <b>Kotlin is concise</b>
-    2) <b>Kotlin is null-safe</b>
-    3) <b>Kotlin is interoperable</b>
+    1)<b>Kotlin is concise</b>
+    2)<b>Kotlin is null-safe</b>
+    3)<b>Kotlin is interoperable</b>
 
 -   **What is the difference between the variable declaration with var and val?**<br/>
     If you want to declare some mutable(changeable) variable, then you can use var . For the immutable variable, use val i.e. val variables can't be changed once assigned.
@@ -49,17 +49,16 @@ Quick Jump to Topics:
     }
     ```
     
-    In the above example, we are declaring the const variable named FILE_EXTENSION in the companion object and the FILENAME variable as val and initialise it with custom getter.
-    As the extension of the file will always be same, so it is declared as a const variable. But, the name of the file will be changed based on the logic that we use for the file name. Here, in our example, we are naming the file based on the current time. You can't give some value to it initially because the value is fetched at the runtime. So, we are using val here.
-    What happens after the code compilation is that wherever the const variables are used in the code, those variables are replaced by the value of that const variable but in case of val , the variables are kept as it is because we don't know the value of val at compile-time. So, if you decompile the above code, then you will see
+    In the above example, we are declaring the ```const``` variable named ```FILE_EXTENSION``` in the companion object and the ```FILENAME``` variable as ```val``` and initialise it with custom getter.
+    As the extension of the file will always be same, so it is declared as a const variable. But, the name of the file will be changed based on the logic that we use for the file name. Here, in our example, we are naming the file based on the current time. You can't give some value to it initially because the value is fetched at the runtime. So, we are using ```val``` here.
+    What happens after the code compilation is that wherever the ```const``` variables are used in the code, those variables are replaced by the value of that ```const``` variable but in case of ```val``` , the variables are kept as it is because we don't know the value of ```val``` at compile-time. So, if you decompile the above code, then you will see
     
     ```kotlin
     public final String getFILENAME() {
         return "Img_" + System.currentTimeMillis() + ".png";
     }
     ```
-   
-   Here, you can find that the variable ```FILE_EXTENSION``` has been replaced by its value i.e. "```.png```" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using ```const``` over ```val``` .
+    Here, you can find that the variable ```FILE_EXTENSION``` has been replaced by its value i.e. "```.png```" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using ```const``` over ```val``` .
 
 -   **How to choose between a switch and when in Kotlin?**<br/>
     One of the major advantages of using Kotlin is null safety. In Java, if you access some null variable then you will get a NullPointerException . So, the following code in Kotlin will produce a compile-time error:
@@ -75,11 +74,24 @@ Quick Jump to Topics:
     name = null // ok
     ```
 
-
 -   **What is the open keyword in Kotlin used for?**<br/>
+    By default, the classes and functions are final in Kotlin. So, you can't inherit the class or override the functions. To do so, you need to use the open keyword before the class and function. For example:
+
 -   **Do we have a ternary operator in Kotlin just like java?**<br/>
+    No, we don't have a ternary operator in Kotlin but you can use the functionality of ternary operator by using if-else or Elvis operator.
+
 -   **How to convert a Kotlin source file to a Java source file?**<br/>
+    Steps to convert your Kotlin source file to Java source file:
+    
+    1)<b>Open your Kotlin project in the IntelliJ IDEA / Android Studio.</b>
+    2)<b>Then navigate to Tools > Kotlin > Show Kotlin Bytecode.</b>
+    3)<b>Now click on the Decompile button to get your Java code from the bytecode.</b>
+
 -   **What is the use of @JvmStatic, @JvmOverloads, and @JvmFiled in Kotlin?**<br/>
+    1)@JvmStatic: This annotation is used to tell the compiler that the method is a static method and can be used in Java code.</b>
+    2)<b>@JvmOverloads: To use the default values passed as an argument in Kotlin code from the Java code, we need to use the @JvmOverloads annotation.</b>
+    3)<b>@JvmField: To access the fields of a Kotlin class from Java code without using any getters and setters, we need to use the @JvmField in the Kotlin code.</b>
+
 -   **Can we use primitive types such as int, double, float in Kotlin?**<br/>
 -   **What is String Interpolation in Kotlin?**<br/>
 -   **What is the equivalent of Java static methods in Kotlin?**<br/>
