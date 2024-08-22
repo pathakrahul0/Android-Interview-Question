@@ -29,7 +29,36 @@ Quick Jump to Topics:
     3) <b>Kotlin is interoperable</b>
 
 -   **What is the difference between the variable declaration with var and val?**<br/>
+    If you want to declare some mutable(changeable) variable, then you can use var . For the immutable variable, use val i.e. val variables can't be changed once assigned.
+
 -   **What is the difference between the variable declaration with val and const?**<br/>
+    Both the variables that are declared with val and const are immutable in nature. But the value of the const variable must be known at the compile-time whereas the value of the val variable can be assigned at runtime also.
+    ```kotlin
+    const val companyName = "MindOrks" // this will work
+    val comapanyname = "MindOrks" // this will work
+    
+    const val companyName = getCompanyName() // will not work
+    val companyName = getCompanyName() // this will work
+    
+    YourClassName {
+        companion object {    
+        const val FILE_EXTENSION = ".png"    
+        val FILENAME: String
+        get() = "Img_" + System.currentTimeMillis() + FILE_EXTENSION 
+        }
+    }```
+    
+    In the above example, we are declaring the const variable named FILE_EXTENSION in the companion object and the FILENAME variable as val and initialise it with custom getter.
+    As the extension of the file will always be same, so it is declared as a const variable. But, the name of the file will be changed based on the logic that we use for the file name. Here, in our example, we are naming the file based on the current time. You can't give some value to it initially because the value is fetched at the runtime. So, we are using val here.
+    What happens after the code compilation is that wherever the const variables are used in the code, those variables are replaced by the value of that const variable but in case of val , the variables are kept as it is because we don't know the value of val at compile-time. So, if you decompile the above code, then you will see
+    
+    ```kotlin
+    public final String getFILENAME() {
+   return "Img_" + System.currentTimeMillis() + ".png";
+   }```
+   
+   Here, you can find that the variable FILE_EXTENSION has been replaced by its value i.e. ".png" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using const over val .
+
 -   **How to choose between a switch and when in Kotlin?**<br/>
 -   **What is the open keyword in Kotlin used for?**<br/>
 -   **Do we have a ternary operator in Kotlin just like java?**<br/>
