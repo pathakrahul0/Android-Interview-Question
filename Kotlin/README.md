@@ -7,6 +7,7 @@ Quick Jump to Topics:
  >> * [lazy](#lazy)
  >> * [companion objects](#companion-objects)
  >> * [object](#object)
+ >> * [constructors](#constructors)
  > * [Data Class](#data-class)
  > * [Sealed Class](#sealed-class)
  > * [Lambdas Expressions](#lambdas-expressions)
@@ -20,15 +21,15 @@ Quick Jump to Topics:
 ### Basic
 
 -   **How does Kotlin work on Android?**<br/>
-    A) Just like Java, the Kotlin code is also compiled into the Java bytecode and is executed at runtime by the Java Virtual Machine i.e. JVM. When a Kotlin file named ```Main.kt``` is compiled then it will eventually turn into a class and then the bytecode of the class will be generated. The name of the bytecode file will be ```MainKt.class``` and this file will be executed by the JVM.
+    Just like Java, the Kotlin code is also compiled into the Java bytecode and is executed at runtime by the Java Virtual Machine i.e. JVM. When a Kotlin file named ```Main.kt``` is compiled then it will eventually turn into a class and then the bytecode of the class will be generated. The name of the bytecode file will be ```MainKt.class``` and this file will be executed by the JVM.
 
 -   **Why should we use Kotlin?**<br/>
+    1) <b>Kotlin is concise</b>
+    2) <b>Kotlin is null-safe</b>
+    3) <b>Kotlin is interoperable</b>
+
 -   **What is the difference between the variable declaration with var and val?**<br/>
 -   **What is the difference between the variable declaration with val and const?**<br/>
--   **What are init blocks in Kotlin?**<br/>
--   **What are the types of constructors in Kotlin?**<br/>
--   **Is there any relationship between primary and secondary constructors?**<br/>
--   **What is the default type of argument used in a constructor?**<br/>
 -   **How to choose between a switch and when in Kotlin?**<br/>
 -   **What is the open keyword in Kotlin used for?**<br/>
 -   **Do we have a ternary operator in Kotlin just like java?**<br/>
@@ -53,35 +54,51 @@ Quick Jump to Topics:
 -   **How to check if a lateinit variable has been initialized or not?**<br/>
 
 ### lazy
+
 -   **What is the difference between lateinit and lazy in Kotlin?**<br/>
 
 
 ### companion objects
+
 -   **What are companion objects in Kotlin?**<br/>
 
 ### object
+
 -   **How to create a Singleton class in Kotlin?**<br/>
 
+### constructors
+
+-   **What are the types of constructors in Kotlin?**<br/>
+-   **Is there any relationship between primary and secondary constructors?**<br/>
+-   **What is the default type of argument used in a constructor?**<br/>
+-   **What are init blocks in Kotlin?**<br/>
 
 ### Data Class
+
 -   **What is a data class in Kotlin?**<br/>
 
 ### Sealed Class
+
 -   **What is a data class in Kotlin?**<br/>
 
 ### Lambdas Expressions
+
 -   **What are lambdas expressions?**<br/>
 
 ### Higher-Order Functions
+
 -   **What are Higher-Order functions in Kotlin?**<br/>
 
 ### Extension Functions
+
 -   **What are extension functions in Kotlin?**<br/>
 
 ### Infix Functions
+
 -   **What is an infix function in Kotlin?**<br/>
 
 ### Inline/No-Inline Functions
+
 -   **What is an inline function in Kotlin?**<br/>
 -   **What is noinline in Kotlin?**<br/>
 
