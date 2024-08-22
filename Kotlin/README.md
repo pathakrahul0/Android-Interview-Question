@@ -1,14 +1,14 @@
 # Kotlin Interview Questions and Answers
 
 Quick Jump to Topics:
-    > * [Basic](#basic)
-    > * [Data Class](#data-class)
-    > * [Lambdas Expressions](#lambdas-expressions)
-    > * [Higher-Order functions](#higher-order-functions)
-    > * [Extension Functions](#extension-functions)
-    > * [Infix Functions](#infix-functions)
-    > * [Inline/No-Inline Functions](#inline/noinline-functions)
-    > * [Coroutines](#coroutines)
+ > * [Basic](#basic)
+ > * [Data Class](#data-class)
+ > * [Lambdas Expressions](#lambdas-expressions)
+ > * [Higher-Order functions](#higher-order-functions)
+ > * [Extension Functions](#extension-functions)
+ > * [Infix Functions](#infix-functions)
+ > * [Inline/No-Inline Functions](#inline/noinline-functions)
+ > * [Coroutines](#coroutines)
 
 
 ### Basic
@@ -40,7 +40,6 @@ Quick Jump to Topics:
 -   **How to choose between a switch and when in Kotlin?**<br/>
 -   **What is the open keyword in Kotlin used for?**<br/>
 
-
 ### Data Class
 -   **What is a data class in Kotlin?**<br/>
 
@@ -56,18 +55,9 @@ Quick Jump to Topics:
 ### Infix Functions
 -   **What is an infix function in Kotlin?**<br/>
 
-### Inline Functions
+### Inline/No-Inline Functions
 -   **What is an inline function in Kotlin?**<br/>
 -   **What is noinline in Kotlin?**<br/>
-
-### Extension Functions
--   **What are extension functions in Kotlin?**<br/>
-
-### Extension Functions
--   **What are extension functions in Kotlin?**<br/>
-
-### Extension Functions
--   **What are extension functions in Kotlin?**<br/>
 
 ### Coroutines
 
