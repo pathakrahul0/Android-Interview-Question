@@ -46,7 +46,8 @@ Quick Jump to Topics:
         val FILENAME: String
         get() = "Img_" + System.currentTimeMillis() + FILE_EXTENSION 
         }
-    }```
+    }
+    ```
     
     In the above example, we are declaring the const variable named FILE_EXTENSION in the companion object and the FILENAME variable as val and initialise it with custom getter.
     As the extension of the file will always be same, so it is declared as a const variable. But, the name of the file will be changed based on the logic that we use for the file name. Here, in our example, we are naming the file based on the current time. You can't give some value to it initially because the value is fetched at the runtime. So, we are using val here.
@@ -55,7 +56,8 @@ Quick Jump to Topics:
     ```kotlin
     public final String getFILENAME() {
    return "Img_" + System.currentTimeMillis() + ".png";
-   }```
+   }
+   ```
    
    Here, you can find that the variable FILE_EXTENSION has been replaced by its value i.e. ".png" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using const over val .
 
