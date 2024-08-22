@@ -629,12 +629,12 @@ Quick Jump to Topics:
     Very frequently we use the following Dispatchers in our Android project:
     
     1) <b>Dispatchers.Default:</b> We should use Dispatchers.Default to perform CPU-intensive tasks.
-            1) Doing heavy calculations like Matrix multiplications.
-            2) Doing any operations on a bigger list present in the memory like sorting, filtering, searching, etc.
-            3) Applying the filter on the Bitmap present in the memory, NOT by reading the image file present on the disk.
-            4) Parsing the JSON available in the memory, NOT by reading the JSON file present on the disk.
-            5) Scaling the bitmap already present in the memory, NOT by reading the image file present on the disk.
-            6) Any operations on the bitmap that are already present in the memory, NOT by reading the image file present on the disk.
+        1) Doing heavy calculations like Matrix multiplications.
+        2) Doing any operations on a bigger list present in the memory like sorting, filtering, searching, etc.
+        3) Applying the filter on the Bitmap present in the memory, NOT by reading the image file present on the disk.
+        4) Parsing the JSON available in the memory, NOT by reading the JSON file present on the disk.
+        5) Scaling the bitmap already present in the memory, NOT by reading the image file present on the disk.
+        6) Any operations on the bitmap that are already present in the memory, NOT by reading the image file present on the disk.
 
     ```kotlin
     launch(Dispatchers.Default) {
