@@ -24,9 +24,9 @@ Quick Jump to Topics:
     Just like Java, the Kotlin code is also compiled into the Java bytecode and is executed at runtime by the Java Virtual Machine i.e. JVM. When a Kotlin file named ```Main.kt``` is compiled then it will eventually turn into a class and then the bytecode of the class will be generated. The name of the bytecode file will be ```MainKt.class``` and this file will be executed by the JVM.
 
 -   **Why should we use Kotlin?**<br/>
-    a) <b>Kotlin is concise</b>
-    b) <b>Kotlin is null-safe</b>
-    c) <b>Kotlin is interoperable</b>
+    1) <b>Kotlin is concise</b>
+    2) <b>Kotlin is null-safe</b>
+    3) <b>Kotlin is interoperable</b>
 
 -   **What is the difference between the variable declaration with var and val?**<br/>
 -   **What is the difference between the variable declaration with val and const?**<br/>
