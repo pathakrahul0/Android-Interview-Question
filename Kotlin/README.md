@@ -63,19 +63,21 @@ Quick Jump to Topics:
     Here, you can find that the variable ```FILE_EXTENSION``` has been replaced by its value i.e. "```.png```" i.e. the value has been inlined and hence there is no overhead to access that variable at the runtime. This is the advantage of using ```const``` over ```val``` .
 
 -   **How to choose between a switch and when in Kotlin?**<br/>
-    One of the major advantages of using Kotlin is null safety. In Java, if you access some null variable then you will get a NullPointerException . So, the following code in Kotlin will produce a compile-time error:
-    
-    ```kotlin
-    var name: String = "ExampleVariable"
-    name = null //error
-    ```
-    
-    So, to assign null values to a variable, you need to declare the name variable as a nullable string and then during the access of this variable, you need to use a safe call operator i.e. ?.
+    Whenever we want to handle many if-else conditions, then we generally use switch-case statements. But Kotlin provides a more concise option i.e. in Kotlin, we can use when in place of the switch. And, when can be used as:
+    1) expression
+    2) arbitrary condition expression
+    3) without argument
+    4) with two or more choices
    
+    For example:
+    
     ```kotlin
-    var name: String? = "ExampleVariable"
-    print(name?.length) // ok
-    name = null // ok
+    when(number) {
+        1 -> println("One")
+        2, 3 -> println("Two or Three")
+        4 -> println("Four")
+        else -> println("Number is not between 1 and 4")
+    }
     ```
 
 -   **What is the open keyword in Kotlin used for?**<br/>
@@ -319,18 +321,18 @@ Quick Jump to Topics:
     Note: You can't use constructor in object, but you can use init.
 
 -   **Companion object vs Object in Kotlin?**<br/>
-    <b>Declaration:</b></br>
-        <b>companion object:</b> It is declared inside a class and is used to define properties and methods that belong to the class itself, rather than to instances of the class. The companion object is defined using the companion keyword.</br>
-        <b>object:</b> It is declared outside of any class and is used to define a standalone singleton object. The object keyword is used to declare and define the object.</br>
-    <b>Accessibility:</b></br>
-        <b>companion object:</b> The properties and methods defined inside a companion object can be accessed using the class name, similar to accessing static members in Java. They are visible and accessible within the class.</br>
-        <b>object:</b> The properties and methods defined inside an object can be accessed directly using the object's name. They are globally accessible, similar to a top-level function or property.</br>
-    <b>Inheritance and Interfaces:</b></br>
-        <b>companion object:</b> A companion object can implement interfaces and inherit from other classes. It can also be accessed through the class it is defined in.</br>
-        <b>object:</b> An object cannot inherit from a class or implement interfaces. It is a standalone singleton and cannot be accessed through any class.</br>
-    <b>Naming:</b></br>
-        <b>companion object:</b> A class can have only one companion object, and it does not have a separate name. It is always called a companion.</br>
-        <b>object:</b> Each object has a unique name and can be referred to using that name.</br>
+    1) <b>Declaration:</b></br>
+        1) <b>companion object:</b> It is declared inside a class and is used to define properties and methods that belong to the class itself, rather than to instances of the class. The companion object is defined using the companion keyword.</br>
+        2) <b>object:</b> It is declared outside of any class and is used to define a standalone singleton object. The object keyword is used to declare and define the object.</br>
+    2) <b>Accessibility:</b></br>
+        1) <b>companion object:</b> The properties and methods defined inside a companion object can be accessed using the class name, similar to accessing static members in Java. They are visible and accessible within the class.</br>
+        2) <b>object:</b> The properties and methods defined inside an object can be accessed directly using the object's name. They are globally accessible, similar to a top-level function or property.</br>
+    3) <b>Inheritance and Interfaces:</b></br>
+        1) <b>companion object:</b> A companion object can implement interfaces and inherit from other classes. It can also be accessed through the class it is defined in.</br>
+        2) <b>object:</b> An object cannot inherit from a class or implement interfaces. It is a standalone singleton and cannot be accessed through any class.</br>
+    4) <b>Naming:</b></br>
+        1) <b>companion object:</b> A class can have only one companion object, and it does not have a separate name. It is always called a companion.</br>
+        2) <b>object:</b> Each object has a unique name and can be referred to using that name.</br>
 
 ### constructors
 
@@ -385,7 +387,7 @@ Quick Jump to Topics:
     ```kotlin
     data class Developer(val name: String, val age: Int)
     ```
-    When we mark a class as a data class, you don’t have to implement or create the following functions like we do in Java: hashCode() , equals() , toString() , copy() . The compiler automatically creates these internally, so it also leads to clean code. Although, there are few other requirements that data classes need to fulfill.
+    When we mark a class as a data class, you don’t have to implement or create the following functions like we do in Java: ```hashCode()``` , ```equals()``` , ```toString()``` , ```copy()```. The compiler automatically creates these internally, so it also leads to clean code. Although, there are few other requirements that data classes need to fulfill.
     
     Although, there are few requirements that data classes need to fulfill:
     1) The primary constructor needs to have at least one parameter.
@@ -395,7 +397,7 @@ Quick Jump to Topics:
 
 ### Sealed Class
 
--   **What is a data class in Kotlin?**<br/>
+-   **What is a Sealed class in Kotlin?**<br/>
 
 ### Lambdas Expressions
 
@@ -678,10 +680,84 @@ Quick Jump to Topics:
     ```
 
 -   **What is suspend function in Kotlin Coroutines?**<br/>
+    Suspend function is the building block of the Coroutines in Kotlin. Suspend function is a function that could be started, paused, and resume. To use a suspend function, we need to use the suspend keyword in our normal function definition. Suspend functions are only allowed to be called from a coroutine or another suspend function.
+
 -   **What is the difference between Launch and Async in Kotlin Coroutines?**<br/>
+    The difference is that the ```launch{}``` does not return anything and the ```async{}``` returns an instance of ```Deferred<T>``` , which has an ```await()``` function that returns the result of the coroutine like we have future in Java in which we do ```future.get()``` to the get the result.
+
+    In other words:
+    <b>launch:</b> fire and forget
+    <b>async:</b> perform a task and return a result
+
 -   **What is withContext in Kotlin Coroutines?**<br/>
+    ```withContext``` is a suspend function through which we can do a task by providing the ```Dispatchers``` on which we want the task to be done.
+    
+    ```withContext``` does not create a new coroutine, it only shifts the context of the existing coroutine and it's a suspend function whereas ```launch``` and ```async``` create a new coroutine and they are not suspend functions.
+    
+    1) Both the launch and ```async``` are used to ```launch``` a coroutine. This enables us to do tasks in parallel.
+    2) ```async``` can be used to get the result that is not possible with the ```launch```.
+    3) ```withContext``` does not launch a coroutine and it is just a ```suspend``` function used for shifting the context of the existing coroutine.
+
 -   **What is runBlocking in Kotlin Coroutines?**<br/>
--   **What are scopes in Kotlin Coroutines?**<br/>
+-   **What are Scopes in Kotlin Coroutines?**<br/>
+    Scopes in Kotlin Coroutines are very useful because we need to cancel the background task as soon as the activity is destroyed.
+    
+    <b>Activity Scope Example<b>
+        Assuming that our activity is the scope, the background task should get canceled as soon as the activity is destroyed.
+        
+        In the activity, we should use ```lifecycleScope``` to launch a coroutine.
+
+        ```kotlin
+        class MainActivity : AppCompatActivity() {
+            override fun onCreate(savedInstanceState: Bundle?) {
+                super.onCreate(savedInstanceState)
+                lifecycleScope.launch {
+                    val user = fetchUser()
+                    // show user
+                }
+
+            }
+            suspend fun fetchUser(): User {
+                return withContext(Dispatchers.IO) {
+                    // fetch user
+                    // return user
+                }
+            }
+        }
+        ```
+
+    As soon as the activity is destroyed, the task will get canceled if it is running because we have used the scope which is bind to the LifeCycle of the Activity.
+    
+    <b>ViewModel Scope Example</b>
+
+    Assuming that our ViewModel is the scope, the background task should get canceled as soon as the ViewModel is destroyed.
+    
+    In the ViewModel, we should use ```viewModelScope``` to launch a coroutine.
+
+        ```kotlin
+        class MainViewModel : ViewModel() {
+            fun fetch() {
+                viewModelScope.launch {
+                    val user = fetchUser()
+                    // show user
+                }
+            }
+            suspend fun fetchUser(): User {
+                return withContext(Dispatchers.IO) {
+                    // fetch user
+                    // return user
+                }
+            }
+        }
+        ```
+
+    As soon as the ViewModel is destroyed, the task will get canceled if it is running because we have used the scope which is bind to the LifeCycle of the ViewModel.
+
 -   **How Exception Handling is done in Kotlin Coroutines?**<br/>
+    There are the following ways to handle exceptions,
+    1) Generic way
+    2) Using CoroutineExceptionHandler
+    3) Using SupervisorScope
+
 
 
