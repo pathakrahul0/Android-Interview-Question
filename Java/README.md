@@ -16,18 +16,22 @@ Quick Jump to Topics:
 -   **Basic Building Blocks for Rx Programming?**<br/>
     There are 2 main building blocks for Reactive / Rx Programming
 
-1) Observable:
-Observables simply emits the data to those which subscribed to them. All the emission is done asynchronously to the subscribers.
+    1) <b>Observable:</b>
+    Observables simply emits the data to those which subscribed to them. All the emission is done asynchronously to the subscribers.
 
-Example code:
+    Example code:
 
-// RxAndroid Tutorial - Adding Observable
-Observable<String> stringObservable = Observable.just("Hello Reactive Programming!");
-2) Observer
-Observer consumes the data emitted by the Observable. To do this, Observer needs to subscribe to the Observable.
+    ```kotlin
+    // RxAndroid Tutorial - Adding Observable
+    Observable<String> stringObservable = Observable.just("Hello Reactive Programming!");
+    ```
+   
+    2) <b>Observer:</b>
+    Observer consumes the data emitted by the Observable. To do this, Observer needs to subscribe to the Observable.
 
-// RxAndroid Tutorial - Adding observer
-Observer<String> stringObserver = new Observer<String>() {
+    ```kotlin
+    // RxAndroid Tutorial - Adding observer
+    Observer<String> stringObserver = new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
             }
@@ -45,11 +49,13 @@ Observer<String> stringObserver = new Observer<String>() {
             public void onComplete() {
             }
         };
-3) Subscribers
-Subscriber helps an Observer subscribe /unsubscribe from Observable.
+    ```
+    3) <b>Subscribers:</b>
+    Subscriber helps an Observer subscribe /unsubscribe from Observable.
 
-// RxAndroid tutorial - observer subscribing to observable
-stringObservable.subscribe(stringObserver);
-Note:
-
-An Observable emits data if there is at least one Observer subscribed to it.
+    ```kotlin
+    // RxAndroid tutorial - observer subscribing to observable
+    stringObservable.subscribe(stringObserver);
+    ```
+    
+    Note:An Observable emits data if there is at least one Observer subscribed to it.
