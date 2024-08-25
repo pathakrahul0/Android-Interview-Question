@@ -59,3 +59,53 @@ Quick Jump to Topics:
     ```
     
     Note:An Observable emits data if there is at least one Observer subscribed to it.
+
+-   **How to Subscribe / Unsubscribe in RXJava?**<br/>
+    We can make an Observer to subscribe to Observable as follows:
+    ```java
+    // RxAndroid tutorial - observer subscribing to observable
+    stringObservable.subscribe(stringObserver);
+    ```
+-   **What are the different types of Observables in RxJava?**<br/>
+    1) <b>Single:</b> A Single in RxJava is an Observable which emits only one item if completed or returns error.
+    2) <b>Maybe:</b> A Maybe in RxJava is used when the Observable needs to emit a value or a no value or an error.
+    3) <b>Completable:</b> A Completable in RxJava is an Observable which just completes the task and does not emit anything if completed. It returns an error if anything fails. It is similar to reactive concept of runnable.
+    4) <b>Back Pressure:</b> Back Pressure is the state where your observable (publisher) is creating more events than your subscriber can handle.
+    5) <b>Flowable:</b> A Flowable in RxJava is used when the Observable emits more data than the Observer can consume. In Other words, Flowable can handle back pressure where as an Observable cannot.
+
+-   **Hot Observables vs Cold Observables**<br/>
+    1) <b>Cold Observables:</b> A Cold Observable is an Observable that does not emit items until a Subscriber subscribes. If we have more than one Subscriber, then the Cold Observable will emit each sequence of items to all Subscribers one by one.
+
+    2) <b>Hot Observables:</b> A Hot observable is an Observer that will emit items
+
+-   **What are Operators in the World of RxJava?**<br/>
+    Operators perform certain tasks on Observables. There are few operators that can Create Observables, and there are other operators that can perform various actions on Observables.
+
+    Types of Operators Available in RxJava
+    [adinserter block=”7″]
+
+    1) <b>Operators for Creating Observables</b>
+    These Operators help creating new Observables. The Operators in this category are: Create, ```Just, Defer, Start, etc.```
+
+    2) <b>Operators for Transforming Observables</b>
+    These Operators help transforming the items emitted by the Observables. The Operators in this Category are: ```Map, Flatmap, Buffer, etc.```
+
+    3) <b>Operators for Filtering Observables</b>
+    These Operators help in filtering the selective items from Observable. The Most commonly used Operators in this category are: ```Filter, Distinct, Debounce, etc.```
+
+    4) <b>Operators for Combining Observables</b>
+    These Operators help in combine multiple Observables to create a single Observable. The Most commonly used Operators in this category are: ```Zip, Join, Switch, etc.```
+
+    5) <b>Error Handling Operators</b>
+    These Operators are used to help catching errors while working with Observables. Eg: ```Catch, Retry.```
+
+    ```[adinserter block=”7″]```
+
+    6) <b>Observable Utility Operators</b>
+    These operators are used for working with Observables. Eg. ```Subscribe, SubscribeOn, ObserveOn, etc.```
+
+    7) <b>Conditional and Boolean Operators</b>
+    These operators are helpful to evaluate one or more Observables or items emitted by Observables. Eg: ```All, Contains, DefaultIfEmpty, etc.```
+
+    8) <b>Mathematical and Aggregate Operators</b>
+    These are the basic Math Operators that will operate on entire sequence of items emitted by Observable. Eg: ```Max, Min, Average, Reduce, Sum, etc.```
