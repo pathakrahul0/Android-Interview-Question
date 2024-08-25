@@ -21,7 +21,7 @@ Quick Jump to Topics:
 
     Example code:
 
-    ```kotlin
+    ```java
     // RxAndroid Tutorial - Adding Observable
     Observable<String> stringObservable = Observable.just("Hello Reactive Programming!");
     ```
@@ -29,7 +29,7 @@ Quick Jump to Topics:
     2) <b>Observer:</b>
     Observer consumes the data emitted by the Observable. To do this, Observer needs to subscribe to the Observable.
 
-    ```kotlin
+    ```java
     // RxAndroid Tutorial - Adding observer
     Observer<String> stringObserver = new Observer<String>() {
             @Override
@@ -53,7 +53,7 @@ Quick Jump to Topics:
     3) <b>Subscribers:</b>
     Subscriber helps an Observer subscribe /unsubscribe from Observable.
 
-    ```kotlin
+    ```java
     // RxAndroid tutorial - observer subscribing to observable
     stringObservable.subscribe(stringObserver);
     ```
