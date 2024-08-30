@@ -252,7 +252,7 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
     <!-- TABLE_GENERATE_START -->
 
     | Feature  | StringBuffer | StringBuilder |
-    | ------------- | ------------- |
+    | ------------- | ------------- | ------------- |
     | Thread safety  | Synchronized (thread-safe)  | Not synchronized (not thread-safe  |
     | Performance  | Slower due to synchronization  |  Slower due to synchronization  |
     | Usage  | Suitable for multi-threaded environments  |  Suitable for single  |
