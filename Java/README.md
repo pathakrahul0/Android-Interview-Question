@@ -249,13 +249,13 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
     It means that once created, String object's char[] (its' containing value) is declared final and, therefore, it can not be changed during runtime.
 
 -   **Difference between StringBuffer and StringBuilder**<br/>
-        <!-- TABLE_GENERATE_START -->
+<!-- TABLE_GENERATE_START -->
 
-|Feature	|StringBuffer	|StringBuilder|
+|Feature|StringBuffer|StringBuilder|
 | -------------------------------------------- |
-|Thread safety|	Synchronized (thread-safe)	|Not synchronized (not thread-safe)|
-|Performance|	Slower due to synchronization|	Faster due to lack of synchronization|
-|Usage|	Suitable for multi-threaded environments|	Suitable for single|
+|Thread safety|Synchronized (thread-safe)|Not synchronized (not thread-safe)|
+|Performance|Slower due to synchronization|Faster due to lack of synchronization|
+|Usage|Suitable for multi-threaded environments|Suitable for single|
 
 <!-- TABLE_GENERATE_END -->
 
