@@ -47,20 +47,217 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
     <b>Flexibility:</b> Adaptable to changing requirements.<br/>
 
 -   **What is Polymorphism? What about Inheritance?**<br/>
+    Polymorphism in object-oriented programming (OOP) is the ability of objects of different classes to be treated as if they were objects of the same class. This allows for more flexible and dynamic code.
+
+    There are two main types of polymorphism:
+
+    <b>Method Overriding:</b>
+
+    Occurs when a subclass provides its own implementation of a method inherited from its superclass.
+    The method in the subclass overrides the method in the superclass.
+    At runtime, the appropriate method is called based on the actual type of the object.
+   
+    <b>Method Overloading:</b>
+
+    Occurs when a class has multiple methods with the same name but different parameters (number, types, or order).
+    The compiler determines which method to call based on the arguments passed.
+    
+    Benefits of Polymorphism:
+
+    <b>Flexibility:</b> Allows for more flexible and adaptable code.
+    <b>Code Reusability:</b> Can reuse code from existing classes.
+    <b>Extensibility:</b> Makes it easier to add new classes or modify existing ones without affecting other parts of the code.
+
+-   **What about Inheritance?**<br/>
+    Inheritance is a fundamental concept in object-oriented programming that allows a class (child class or subclass) to inherit properties and methods from another class (parent class or superclass). This promotes code reusability and creates hierarchical relationships between classes.
+
+    Key points about inheritance:
+
+    Parent class: The class from which properties and methods are inherited.
+    Child class: The class that inherits properties and methods from the parent class.
+    Inheritance hierarchy: A tree-like structure where classes are related to each other through inheritance.
+    Benefits of inheritance:
+
+    Code reusability: Avoids duplicate code by reusing methods and properties from the parent class.
+    Code organization: Creates a clear hierarchy of classes, making the code easier to understand and maintain.
+    Polymorphism: Allows objects of different classes to be treated as if they were objects of the same class.
+    
+    Types of inheritance:
+
+    Single inheritance: A class inherits from only one parent class.
+    Multiple inheritance: A class inherits from more than one parent class. (Not supported in all languages, such as Python)
+    Hierarchical inheritance: Multiple child classes inherit from a single parent class.
+    Hybrid inheritance: A combination of multiple1 and hierarchical inheritance.
+
 
 -   **Can an Interface implement another Interface?**<br/>
+    Yes, an interface can implement another interface (and more than one), but it needs to use extends, rather than implements keyword. And while you can not remove methods from parent interface, you can add new ones freely to your sub-interface.
 
 -   **Difference between method overloading and overriding.**<br/>
+    Method Overloading
+
+    Occurs within the same class.
+    Methods have the same name but different parameters.
+    Parameters can differ in number, types, or order.
+    The compiler determines which method to call based on the arguments passed.
+    Used to create methods with the same name but different functionalities based on different inputs.
+    Example:
+
+    ```java
+    public class Calculator {
+        public int add(int a, int b) {
+            return a + b;
+        }
+
+        public double add(double a, double b) {
+            return a + b;
+        }
+    }
+    ```
+
+    Method Overriding   
+
+    Occurs in a subclass that inherits from a superclass.
+    Methods have the same name, parameters, and return type.
+    The subclass's method overrides the superclass's method.
+    The method called depends on the object's actual type at runtime.
+    Used to provide a specialized implementation of a method inherited from a superclass.
+    Example:
+
+    ```java
+    public class Animal {
+        public void speak() {
+            System.out.println("Generic animal sound");
+        }
+    }
+
+    public class Dog extends Animal {
+        @Override
+        public void speak() {
+            System.out.println("Woof!");
+        }
+    }
+    ```
 
 -   **Differences between abstract classes and interfaces?**<br/>
+    Abstract Classes
+    Definition: A class that cannot be instantiated directly. It's designed to be a base class for other classes.
+
+    Purpose:
+    Provides a common framework for related classes.
+    Defines a partial implementation of methods.
+    Enforces a consistent structure for subclasses.
+    
+    Characteristics:
+    Can contain both abstract and concrete methods.
+    Can have instance variables.
+    Can have constructors.
+    Can extend only one direct superclass.
+    Can implement multiple interfaces.
+
+    Interfaces
+    Definition: A blueprint of a class that specifies a set of methods that the class must implement.
+    
+    Purpose:
+    Defines a contract that classes must adhere to.
+    Promotes code reusability and polymorphism.
+    Provides a way to achieve multiple inheritance.
+    
+    Characteristics:
+    Contains only abstract methods and constants.
+    Does not have instance variables.
+    Does not have constructors.
+    A class can implement multiple interfaces.
+    An interface can extend another interface.
 
 -   **What are the access modifiers you know? What does each one do?**<br/>
+    Access Modifiers in Java control the visibility of classes, methods, and fields (variables). They determine who can access these elements from different parts of the program. Here's a breakdown of the common access modifiers:
+
+    public:
+
+    Accessible from anywhere in the program.
+    Can be accessed by other classes in the same package, different packages, or even other projects.
+    
+    private:
+
+    Accessible only within the same class.
+    Cannot be accessed by other classes, even if they are in the same package.
+    
+    protected:
+
+    Accessible within the same package and by subclasses in other packages.
+    Cannot be accessed directly by other classes in different packages that are not subclasses.
+    
+    default (package-private):
+
+    Accessible only within the same package.
+    No explicit keyword is used to specify default access.
+    If no access modifier is specified, the element is considered package-private.
+    Example:
+
+    ```java
+    public class MyClass {
+        public int publicField; // Accessible from anywhere
+        private int privateField; // Accessible only within MyClass
+        protected int protectedField; // Accessible within the same package and by subclasses in other packages
+        int defaultField; // Accessible only within the same package (default access)
+
+        public void publicMethod() {
+            // ...
+        }
+
+        private void privateMethod() {
+            // ...
+        }
+
+        protected void protectedMethod() {
+            // ...
+        }
+
+        void defaultMethod() {
+            // ...
+        }
+    }
+    ```
+
+
+    In this example:
+
+    publicField can be accessed from anywhere.
+    privateField can only be accessed within MyClass.
+    protectedField can be accessed within MyClass and by subclasses in other packages.
+    defaultField can only be accessed within the same package as MyClass.
 
 -   **How is String class implemented? Why was it made immutable?**<br/>
+    String class is implemented using a character array. This means that a String object stores a sequence of characters in an underlying array. However, the specific implementation details may vary slightly between different languages and versions.
+
+    Immutability
+
+    The String class is designed to be immutable, meaning its value cannot be changed after it's created. This has several advantages:
+
+    1) Thread Safety: Immutable objects are inherently thread-safe because multiple threads can safely access and use them without worrying about data corruption. This simplifies concurrent programming and reduces the risk of race conditions.
+    2) Security: Immutability helps to prevent security vulnerabilities, as it's difficult for malicious code to modify the contents of a String object and exploit it.
+    3) Caching: Immutable objects can be cached more efficiently, as their values remain constant. This can improve performance in certain scenarios, especially when the same String values are used frequently.
+    4) Hashing: Immutable objects are well-suited for use as hash table keys, as their hash code remains constant and can be precomputed. This improves the efficiency of hash table operations.
+    5) Simplicity: Immutability simplifies the design and implementation of the String class, as there are fewer potential ways for its value to be changed.
+    
+    Concatenation
+
+    While String objects themselves are immutable, operations like concatenation can create new String objects. For example, the expression "Hello" + " world" creates a new String object with the value "Hello world". This is often implemented using a StringBuilder or StringBuffer class, which is mutable and allows for efficient concatenation of multiple String objects.
 
 -   **What does it means to say that a String is immutable?**<br/>
+    It means that once created, String object's char[] (its' containing value) is declared final and, therefore, it can not be changed during runtime.
 
 -   **Difference between StringBuffer and StringBuilder**<br/>
+        <!-- TABLE_GENERATE_START -->
+
+|Feature	|StringBuffer	|StringBuilder|
+| -------------------------------------------- |
+|Thread safety|	Synchronized (thread-safe)	|Not synchronized (not thread-safe)|
+|Performance|	Slower due to synchronization|	Faster due to lack of synchronization|
+|Usage|	Suitable for multi-threaded environments|	Suitable for single|
+
+<!-- TABLE_GENERATE_END -->
 
 -   **Can you create an object for Abstract Class directly?**<br/>
     No, we cannot create an object of an abstract class, but we can create a reference variable of an abstract class pointing to the object of its implementation.
