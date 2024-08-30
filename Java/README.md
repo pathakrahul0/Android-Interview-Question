@@ -40,11 +40,11 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
     Achieved through abstract classes and interfaces.
     Example: An Animal class might have an abstract makeSound method, forcing its child classes to implement it.
 
-    Benefits of OOP:
-    <b>Modularity:</b> Breaks down complex problems into smaller, manageable units.
-    <b>Reusability:</b> Code can be reused in different contexts.
-    <b>Maintainability:</b> Easier to understand, modify, and extend code.
-    <b>Flexibility:</b> Adaptable to changing requirements.
+    Benefits of OOP:<br/>
+    <b>Modularity:</b> Breaks down complex problems into smaller, manageable units.<br/>
+    <b>Reusability:</b> Code can be reused in different contexts.<br/>
+    <b>Maintainability:</b> Easier to understand, modify, and extend code.<br/>
+    <b>Flexibility:</b> Adaptable to changing requirements.<br/>
 
 -   **What is Polymorphism? What about Inheritance?**<br/>
 
