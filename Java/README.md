@@ -11,8 +11,67 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
 
 ### Basic
 
--   **How does Kotlin work on Android?**<br/>
-    Just like Java, the Kotlin code is also compiled into the Java bytecode and is executed at runtime by the Java Virtual Machine i.e. JVM. When a Kotlin file named ```Main.kt``` is compiled then it will eventually turn into a class and then the bytecode of the class will be generated. The name of the bytecode file will be ```MainKt.class``` and this file will be executed by the JVM.
+-   **Explain OOP Concepts**<br/>
+    OOP is a programming paradigm that models real-world entities as objects. Each object has properties (attributes) and behaviors (methods). These concepts form the foundation of OOP:
+
+    1) <b>Object:</b>
+    A fundamental unit in OOP that represents a real-world entity.
+    It has properties (data) and methods (functions).
+    Example: A Car object might have properties like color, make, model, and methods like start, stop, accelerate.
+    2) <b>Class:</b>
+    A blueprint or template for creating objects.
+    Defines the properties and methods that objects of that class will have.
+    Example: The Car class would define the common attributes and behaviors for all cars.
+    3) <b>Encapsulation:</b>
+    The process of bundling data (attributes) and methods (functions) within a single unit (object).
+    Protects data from unauthorized access or modification.
+    Achieved through access modifiers (public, private, protected).
+    4) <b>Inheritance:</b>
+    A mechanism where one class (child class) acquires properties and methods of another class (parent class).
+    Promotes code reusability and creates hierarchical relationships.
+    Example: A Truck class might inherit from the Vehicle class, gaining its properties and methods.
+    5) <b>Polymorphism:</b>
+    The ability of objects of different classes to be treated as if they were objects of the same class.
+    Allows for flexible and dynamic code.
+    Achieved through method overriding and method overloading.
+    Example: A Dog and Cat class can both have a speak method, but they will implement it differently.
+    6) <b>Abstraction:</b>
+    Simplifying complex reality by focusing on essential features and ignoring irrelevant details.
+    Achieved through abstract classes and interfaces.
+    Example: An Animal class might have an abstract makeSound method, forcing its child classes to implement it.
+    Benefits of OOP:
+    Modularity: Breaks down complex problems into smaller, manageable units.
+    Reusability: Code can be reused in different contexts.
+    Maintainability: Easier to understand, modify, and extend code.
+    Flexibility: Adaptable to changing requirements.
+
+-   **What is Polymorphism? What about Inheritance?**<br/>
+
+-   **Can an Interface implement another Interface?**<br/>
+
+-   **Difference between method overloading and overriding.**<br/>
+
+-   **Differences between abstract classes and interfaces?**<br/>
+
+-   **What are the access modifiers you know? What does each one do?**<br/>
+
+-   **How is String class implemented? Why was it made immutable?**<br/>
+
+-   **What does it means to say that a String is immutable?**<br/>
+
+-   **Difference between StringBuffer and StringBuilder**<br/>
+
+-   **Can you create an object for Abstract Class directly?**<br/>
+    No, we cannot create an object of an abstract class, but we can create a reference variable of an abstract class pointing to the object of its implementation.
+
+-   **Can you create an object for an Interface directly?**<br/>
+    No, similar to abstract class, we cannot create an object of an Interface. But we can create a reference variable of an Interface pointing to the object of its implementation.
+
+-   **Can you create an object for Abstract Class directly?**<br/>
+-   **Can you create an object for Abstract Class directly?**<br/>
+-   **Can you create an object for Abstract Class directly?**<br/>
+
+
 
 ### RxJava
 -   **Basic Building Blocks for Rx Programming?**<br/>
