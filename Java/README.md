@@ -249,15 +249,15 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
     It means that once created, String object's char[] (its' containing value) is declared final and, therefore, it can not be changed during runtime.
 
 -   **Difference between StringBuffer and StringBuilder**<br/>
-<!-- TABLE_GENERATE_START -->
+    <!-- TABLE_GENERATE_START -->
 
-|Feature|StringBuffer|StringBuilder|
-| -------------------------------------------- |
-|Thread safety|Synchronized (thread-safe)|Not synchronized (not thread-safe)|
-|Performance|Slower due to synchronization|Faster due to lack of synchronization|
-|Usage|Suitable for multi-threaded environments|Suitable for single|
+    | Feature  | StringBuffer | StringBuilder |
+    | ------------- | ------------- |
+    | Thread safety  | Synchronized (thread-safe)  | Not synchronized (not thread-safe  |
+    | Performance  | Slower due to synchronization  |  Slower due to synchronization  |
+    | Usage  | Suitable for multi-threaded environments  |  Suitable for single  |
 
-<!-- TABLE_GENERATE_END -->
+    <!-- TABLE_GENERATE_END -->
 
 -   **Can you create an object for Abstract Class directly?**<br/>
     No, we cannot create an object of an abstract class, but we can create a reference variable of an abstract class pointing to the object of its implementation.
