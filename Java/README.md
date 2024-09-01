@@ -2,14 +2,85 @@
 
 Quick Jump to Topics:
  > * [Basic](#basic)
- >> * [null safety](#null-safety)
+ >> * [OOP Concepts](#oop-concepts)
+ >> * [String](#string)
+ >> * [Exceptions](#exceptions)
+ > * [Collections and Generics](#collections-and-generics)
  > * [RxJava](#rxjava)
- > * [Coroutines](#coroutines)
+
 
 
 https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
 
 ### Basic
+
+-   **What are the access modifiers you know? What does each one do?**<br/>
+    Access Modifiers in Java control the visibility of classes, methods, and fields (variables). They determine who can access these elements from different parts of the program. Here's a breakdown of the common access modifiers:
+
+    <b>public:</b>
+
+    Accessible from anywhere in the program.
+    Can be accessed by other classes in the same package, different packages, or even other projects.
+    
+    <b>private:</b>
+
+    Accessible only within the same class.
+    Cannot be accessed by other classes, even if they are in the same package.
+    
+    <b>protected:</b>
+
+    Accessible within the same package and by subclasses in other packages.
+    Cannot be accessed directly by other classes in different packages that are not subclasses.
+    
+    <b>default (package-private):</b>
+
+    Accessible only within the same package.
+    No explicit keyword is used to specify default access.
+    If no access modifier is specified, the element is considered package-private.
+    
+    Example:
+
+    ```java
+    public class MyClass {
+        public int publicField; // Accessible from anywhere
+        private int privateField; // Accessible only within MyClass
+        protected int protectedField; // Accessible within the same package and by subclasses in other packages
+        int defaultField; // Accessible only within the same package (default access)
+
+        public void publicMethod() {
+            // ...
+        }
+
+        private void privateMethod() {
+            // ...
+        }
+
+        protected void protectedMethod() {
+            // ...
+        }
+
+        void defaultMethod() {
+            // ...
+        }
+    }
+    ```
+
+
+    In this example:
+
+    <b>publicField</b> can be accessed from anywhere.
+    <b>privateField</b> can only be accessed within MyClass.
+    <b>protectedField</b> can be accessed within MyClass and by subclasses in other packages.
+    <b>defaultField</b> can only be accessed within the same package as MyClass.
+
+-   **What are these final, finally and finalize keywords?**<br/>
+-   **What are the access modifiers you know? What does each one do?**<br/>
+-   **What are the access modifiers you know? What does each one do?**<br/>
+-   **What are the access modifiers you know? What does each one do?**<br/>
+
+
+
+### OOP Concepts
 
 -   **Explain OOP Concepts**<br/>
     OOP is a programming paradigm that models real-world entities as objects. Each object has properties (attributes) and behaviors (methods). These concepts form the foundation of OOP:
@@ -94,6 +165,7 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
     Yes, an interface can implement another interface (and more than one), but it needs to use extends, rather than implements keyword. And while you can not remove methods from parent interface, you can add new ones freely to your sub-interface.
 
 -   **Difference between method overloading and overriding.**<br/>
+    
     Method Overloading
 
     Occurs within the same class.
@@ -140,108 +212,58 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
     ```
 
 -   **Differences between abstract classes and interfaces?**<br/>
-    Abstract Classes
+    <b>Abstract Classes</b>
     Definition: A class that cannot be instantiated directly. It's designed to be a base class for other classes.
 
-    Purpose:
+    <b>Purpose:</b>
     Provides a common framework for related classes.
     Defines a partial implementation of methods.
     Enforces a consistent structure for subclasses.
     
-    Characteristics:
+    <b>Characteristics:</b>
     Can contain both abstract and concrete methods.
     Can have instance variables.
     Can have constructors.
     Can extend only one direct superclass.
     Can implement multiple interfaces.
 
-    Interfaces
+    <b>Interfaces</b>
     Definition: A blueprint of a class that specifies a set of methods that the class must implement.
     
-    Purpose:
+    <b>Purpose:</b>
     Defines a contract that classes must adhere to.
     Promotes code reusability and polymorphism.
     Provides a way to achieve multiple inheritance.
     
-    Characteristics:
+    <b>Characteristics:</b>
     Contains only abstract methods and constants.
     Does not have instance variables.
     Does not have constructors.
     A class can implement multiple interfaces.
     An interface can extend another interface.
 
--   **What are the access modifiers you know? What does each one do?**<br/>
-    Access Modifiers in Java control the visibility of classes, methods, and fields (variables). They determine who can access these elements from different parts of the program. Here's a breakdown of the common access modifiers:
+-   **Can you create an object for Abstract Class directly?**<br/>
+    No, we cannot create an object of an abstract class, but we can create a reference variable of an abstract class pointing to the object of its implementation.
 
-    public:
+-   **Can you create an object for an Interface directly?**<br/>
+    No, similar to abstract class, we cannot create an object of an Interface. But we can create a reference variable of an Interface pointing to the object of its implementation.
 
-    Accessible from anywhere in the program.
-    Can be accessed by other classes in the same package, different packages, or even other projects.
-    
-    private:
-
-    Accessible only within the same class.
-    Cannot be accessed by other classes, even if they are in the same package.
-    
-    protected:
-
-    Accessible within the same package and by subclasses in other packages.
-    Cannot be accessed directly by other classes in different packages that are not subclasses.
-    
-    default (package-private):
-
-    Accessible only within the same package.
-    No explicit keyword is used to specify default access.
-    If no access modifier is specified, the element is considered package-private.
-    Example:
-
-    ```java
-    public class MyClass {
-        public int publicField; // Accessible from anywhere
-        private int privateField; // Accessible only within MyClass
-        protected int protectedField; // Accessible within the same package and by subclasses in other packages
-        int defaultField; // Accessible only within the same package (default access)
-
-        public void publicMethod() {
-            // ...
-        }
-
-        private void privateMethod() {
-            // ...
-        }
-
-        protected void protectedMethod() {
-            // ...
-        }
-
-        void defaultMethod() {
-            // ...
-        }
-    }
-    ```
-
-
-    In this example:
-
-    publicField can be accessed from anywhere.
-    privateField can only be accessed within MyClass.
-    protectedField can be accessed within MyClass and by subclasses in other packages.
-    defaultField can only be accessed within the same package as MyClass.
+### String
 
 -   **How is String class implemented? Why was it made immutable?**<br/>
     String class is implemented using a character array. This means that a String object stores a sequence of characters in an underlying array. However, the specific implementation details may vary slightly between different languages and versions.
 
-    Immutability
+    <b>Immutability</b>
 
     The String class is designed to be immutable, meaning its value cannot be changed after it's created. This has several advantages:
 
-    1) Thread Safety: Immutable objects are inherently thread-safe because multiple threads can safely access and use them without worrying about data corruption. This simplifies concurrent programming and reduces the risk of race conditions.
-    2) Security: Immutability helps to prevent security vulnerabilities, as it's difficult for malicious code to modify the contents of a String object and exploit it.
-    3) Caching: Immutable objects can be cached more efficiently, as their values remain constant. This can improve performance in certain scenarios, especially when the same String values are used frequently.
-    4) Hashing: Immutable objects are well-suited for use as hash table keys, as their hash code remains constant and can be precomputed. This improves the efficiency of hash table operations.
-    5) Simplicity: Immutability simplifies the design and implementation of the String class, as there are fewer potential ways for its value to be changed.
+    1) <b>Thread Safety:</b> Immutable objects are inherently thread-safe because multiple threads can safely access and use them without worrying about data corruption. This simplifies concurrent programming and reduces the risk of race conditions.
+    2) <b>Security:</b> Immutability helps to prevent security vulnerabilities, as it's difficult for malicious code to modify the contents of a String object and exploit it.
+    3) <b>Caching:</b> Immutable objects can be cached more efficiently, as their values remain constant. This can improve performance in certain scenarios, especially when the same String values are used frequently.
+    4) <b>Hashing:</b> Immutable objects are well-suited for use as hash table keys, as their hash code remains constant and can be precomputed. This improves the efficiency of hash table operations.
+    5) <b>Simplicity:</b> Immutability simplifies the design and implementation of the String class, as there are fewer potential ways for its value to be changed.
     
-    Concatenation
+    <b>Concatenation</b>
 
     While String objects themselves are immutable, operations like concatenation can create new String objects. For example, the expression "Hello" + " world" creates a new String object with the value "Hello world". This is often implemented using a StringBuilder or StringBuffer class, which is mutable and allows for efficient concatenation of multiple String objects.
 
@@ -259,16 +281,23 @@ https://veskoiliev.com/40-rxjava-interview-questions-and-answers/
 
     <!-- TABLE_GENERATE_END -->
 
--   **Can you create an object for Abstract Class directly?**<br/>
-    No, we cannot create an object of an abstract class, but we can create a reference variable of an abstract class pointing to the object of its implementation.
-
--   **Can you create an object for an Interface directly?**<br/>
-    No, similar to abstract class, we cannot create an object of an Interface. But we can create a reference variable of an Interface pointing to the object of its implementation.
 
 -   **Can you create an object for Abstract Class directly?**<br/>
 -   **Can you create an object for Abstract Class directly?**<br/>
 -   **Can you create an object for Abstract Class directly?**<br/>
 
+### Exceptions
+
+-   **How does the try{}, catch{}, finally works?**<br/>
+-   **What is the difference between a Checked Exception and an Un-Checked Exception?**<br/>
+-   **What is the difference between "throw" and "throws" keyword in Java?**<br/>
+
+
+
+
+
+
+### Collections and Generics
 
 
 ### RxJava
