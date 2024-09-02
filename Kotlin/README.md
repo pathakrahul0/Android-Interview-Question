@@ -18,6 +18,7 @@ Quick Jump to Topics:
  > * [Inline Functions](#Inline-Functions)
  > * [Coroutines](#coroutines)
 
+https://shirsh94.medium.com/top-100-kotlin-interview-questions-and-answers-d1f6785f336a
 
 ### Basic
 
@@ -210,51 +211,43 @@ Quick Jump to Topics:
 
 ### null safety
 
--   **How to ensure null safety in Kotlin?**<br/>
-    One of the major advantages of using Kotlin is null safety. In Java, if you access some null variable then you will get a NullPointerException . So, the following code in Kotlin will produce a compile-time error:
+-   **What are nullable types in Kotlin?**<br/>
+    In Kotlin, nullable types allow variables to hold null values in addition to their regular data type values. This is in contrast to non-nullable types, which cannot hold null values by default. By using nullable types, the compiler enforces null safety and reduces the occurrence of null pointer exceptions.
+
+    To declare a nullable type, you append a question mark (?) to the data type.
 
     ```kotlin
-    var name: String = "ExampleVariable"
-    name = null //error
+    val name: String? = null // Nullable String type
+
+    val age: Int? = 25 // Nullable Int type
     ```
 
-    So, to assign null values to a variable, you need to declare the name variable as a nullable string and then during the access of this variable, you need to use a safe call operator i.e. ?.
+-   **How do you handle nullability in Kotlin?**<br/>
+    In Kotlin, you can handle nullability using several techniques:
+
+    1) <b>Safe Calls:</b> Use the safe call operator (?.) to safely access properties or call methods on a nullable object. If the object is null, the expression evaluates to null instead of throwing a null pointer exception.
     
     ```kotlin
-    var name: String? = "ExampleVariable"
-    print(name?.length) // ok
-    name = null // ok
+    val length: Int? = text?.length
     ```
-
--   **What is the difference between safe calls(?.) and null check(!!)?**<br/>
-    Safe call operator i.e. ```?.``` is used to check if the value of the variable is null or not. If it is null then null will be returned otherwise it will return the desired value.
-
+   
+    2) <b>Elvis Operator:</b> The Elvis operator (?:) allows you to provide a default value when accessing a nullable object. If the object is null, the expression after the Elvis operator is returned instead.
+    
     ```kotlin
-    var name: String? = "ExampleVariable"
-    println(name?.length) // 8
-    name = null
-    println(name?.length) // null
+    val length: Int = text?.length ?: 0
     ```
-
-    If you want to throw NullPointerException when the value of the variable is null, then you can use the null check or ```!!```operator.
-
+   
+    3) <b>Safe Casts:</b> Use the safe cast operator (as?) to perform type casts on nullable objects. If the cast is unsuccessful, the result is null.
+    
     ```kotlin
-    var name: String? = "ExampleVariable"
-    println(name?.length) // 8
-    name = null
-    println(name!!.length) // KotlinNullPointerException
+    val name: String? = value as? String
     ```
-
--   **What is Elvis operator in Kotlin?**<br/>
-    In Kotlin, you can assign null values to a variable by using the null safety property. To check if a value is having null value then you can use if-else or can use the Elvis operator i.e. ```?:``` For example:
-
+    
+    4) <b>Non-Null Assertion:</b> When you are certain that a nullable variable is not null at a specific point, you can use the non-null assertion operator (!!) to bypass null safety checks. However, if the variable is actually null, a null pointer exception will occur.
+    
     ```kotlin
-    var name:String? = "ExampleVariable"
-    val nameLength = name?.length ?: -1
-    println(nameLength)
+    val length: Int = text!!.length
     ```
-
-    The Elvis operator(```?:```) used above will return the length of name if the value is not null otherwise if the value is null, then it will return -1 .
 
 ### lateinit
 
